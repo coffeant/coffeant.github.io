@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>社交外贸SaaS系统架构设计 | Go-to-Market Wiki</title><meta charset="utf-8"/><link rel="preload" href="../../index-bb6c1746.css" as="style"/><link rel="preload" href="../../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="GTM 知识库"/><meta property="og:title" content="社交外贸SaaS系统架构设计 | Go-to-Market Wiki"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="社交外贸SaaS系统架构设计 | Go-to-Market Wiki"/><meta name="twitter:description" content="外贸社媒运营 SaaS 系统架构设计 目标用户：中国外贸 B2B/B2C 从业者、外贸团队、出海品牌 核心定位：一站式海外社媒运营平台，解决跨语言、跨时区、多平台管理的核心痛点 一、外贸从业者核心痛点分析 痛点具体表现解决方案多平台割裂Facebook/LinkedIn/Instagram/TikTok/YouTube/X/Pinterest 各自登录管理统一聚合面板，OAuth一次绑定所有平台语言障碍英文内容创作困难，中式英语影响品牌形象AI 多语言内容生成 + 本地化润色时区错位国内白天是欧美深夜，无法实时互动定时发布 + 智能推荐最佳发帖时段获客难社媒流量无法转化为询盘/B2B线索社媒→..."/><meta property="og:description" content="外贸社媒运营 SaaS 系统架构设计 目标用户：中国外贸 B2B/B2C 从业者、外贸团队、出海品牌 核心定位：一站式海外社媒运营平台，解决跨语言、跨时区、多平台管理的核心痛点 一、外贸从业者核心痛点分析 痛点具体表现解决方案多平台割裂Facebook/LinkedIn/Instagram/TikTok/YouTube/X/Pinterest 各自登录管理统一聚合面板，OAuth一次绑定所有平台语言障碍英文内容创作困难，中式英语影响品牌形象AI 多语言内容生成 + 本地化润色时区错位国内白天是欧美深夜，无法实时互动定时发布 + 智能推荐最佳发帖时段获客难社媒流量无法转化为询盘/B2B线索社媒→..."/><meta property="og:image:alt" content="外贸社媒运营 SaaS 系统架构设计 目标用户：中国外贸 B2B/B2C 从业者、外贸团队、出海品牌 核心定位：一站式海外社媒运营平台，解决跨语言、跨时区、多平台管理的核心痛点 一、外贸从业者核心痛点分析 痛点具体表现解决方案多平台割裂Facebook/LinkedIn/Instagram/TikTok/YouTube/X/Pinterest 各自登录管理统一聚合面板，OAuth一次绑定所有平台语言障碍英文内容创作困难，中式英语影响品牌形象AI 多语言内容生成 + 本地化润色时区错位国内白天是欧美深夜，无法实时互动定时发布 + 智能推荐最佳发帖时段获客难社媒流量无法转化为询盘/B2B线索社媒→..."/><meta property="twitter:domain" content="coffeant.github.io"/><meta property="og:url" content="https://coffeant.github.io/raw/notes/社交外贸saas系统架构设计"/><meta property="twitter:url" content="https://coffeant.github.io/raw/notes/社交外贸saas系统架构设计"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="外贸社媒运营 SaaS 系统架构设计 目标用户：中国外贸 B2B/B2C 从业者、外贸团队、出海品牌 核心定位：一站式海外社媒运营平台，解决跨语言、跨时区、多平台管理的核心痛点 一、外贸从业者核心痛点分析 痛点具体表现解决方案多平台割裂Facebook/LinkedIn/Instagram/TikTok/YouTube/X/Pinterest 各自登录管理统一聚合面板，OAuth一次绑定所有平台语言障碍英文内容创作困难，中式英语影响品牌形象AI 多语言内容生成 + 本地化润色时区错位国内白天是欧美深夜，无法实时互动定时发布 + 智能推荐最佳发帖时段获客难社媒流量无法转化为询盘/B2B线索社媒→..."/><meta name="generator" content="Quartz"/><link href="../../index-bb6c1746.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-11d41004.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-26a99b87.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://coffeant.github.io/raw/notes/社交外贸saas系统架构设计-og-image.webp"/><meta property="og:image:url" content="https://coffeant.github.io/raw/notes/社交外贸saas系统架构设计-og-image.webp"/><meta name="twitter:image" content="https://coffeant.github.io/raw/notes/社交外贸saas系统架构设计-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="raw/notes/社交外贸saas系统架构设计" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">GTM 知识库</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-25" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-25" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../raw/">raw</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../raw/notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>社交外贸SaaS系统架构设计</a></div></nav><h1 class="article-title">社交外贸SaaS系统架构设计</h1><p show-comma="true" class="content-meta"><time datetime="2026-09-16T03:25:51.000Z">2026年9月16日</time><span>18分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="外贸社媒运营-saas-系统架构设计">外贸社媒运营 SaaS 系统架构设计<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#外贸社媒运营-saas-系统架构设计" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote>
+<p>目标用户：中国外贸 B2B/B2C 从业者、外贸团队、出海品牌<br/>
+核心定位：一站式海外社媒运营平台，解决跨语言、跨时区、多平台管理的核心痛点</p>
+</blockquote>
+<hr/>
+<h2 id="一外贸从业者核心痛点分析">一、外贸从业者核心痛点分析<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#一外贸从业者核心痛点分析" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>痛点</th><th>具体表现</th><th>解决方案</th></tr></thead><tbody><tr><td><strong>多平台割裂</strong></td><td>Facebook/LinkedIn/Instagram/TikTok/YouTube/X/Pinterest 各自登录管理</td><td>统一聚合面板，OAuth一次绑定所有平台</td></tr><tr><td><strong>语言障碍</strong></td><td>英文内容创作困难，中式英语影响品牌形象</td><td>AI 多语言内容生成 + 本地化润色</td></tr><tr><td><strong>时区错位</strong></td><td>国内白天是欧美深夜，无法实时互动</td><td>定时发布 + 智能推荐最佳发帖时段</td></tr><tr><td><strong>获客难</strong></td><td>社媒流量无法转化为询盘/B2B线索</td><td>社媒→独立站→询盘追踪，LinkedIn精准触达采购决策人</td></tr><tr><td><strong>内容产出低效</strong></td><td>缺乏产品素材，不会做视频</td><td>AI 图文转视频，产品图自动适配各平台尺寸</td></tr><tr><td><strong>效果难衡量</strong></td><td>不知道哪条内容有效，ROI 不清晰</td><td>跨平台统一分析面板 + 询盘归因</td></tr><tr><td><strong>成本敏感</strong></td><td>Buffer/Sprout Social/Hootsuite 等 $100-300/月太贵</td><td>开源核心 + 按需付费，支持自部署</td></tr><tr><td><strong>合规风险</strong></td><td>内容不当导致账号被封</td><td>AI 合规检查 + 审核流程</td></tr></tbody></table></div>
+<hr/>
+<h2 id="二总体架构">二、总体架构<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#二总体架构" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>┌─────────────────────────────────────────────────────────────────────┐
+│                       客户端层 (Client Layer)                         │
+│  ┌──────────┐  ┌──────────┐  ┌───────────┐  ┌──────────────────┐   │
+│  │ Web App  │  │ Mobile   │  │ WeChat    │  │ API Client       │   │
+│  │ (React/  │  │ (React   │  │ Mini-     │  │ (REST + MCP)     │   │
+│  │  Next.js)│  │  Native) │  │ Program   │  │  for n8n/Make    │   │
+│  └──────────┘  └──────────┘  └───────────┘  └──────────────────┘   │
+└──────────────────────────┬──────────────────────────────────────────┘
+                           │ HTTPS / WSS
+                           ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                       API 网关层 (Gateway Layer)                      │
+│  ┌─────────────┐  ┌──────────────┐  ┌────────────────────────────┐  │
+│  │ API Gateway │  │ Auth Gateway │  │ Rate Limiter / WAF         │  │
+│  │ (Kong/Nginx)│  │ (JWT + OAuth)│  │ (per-key, per-tenant限流)   │  │
+│  └─────────────┘  └──────────────┘  └────────────────────────────┘  │
+└──────────────────────────┬──────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                     微服务层 (Microservices)                         │
+│                                                                     │
+│  ┌─────────┐ ┌───────────┐ ┌──────────┐ ┌──────────┐ ┌─────────┐  │
+│  │用户与租户│ │内容管理服务│ │发布调度  │ │社媒收件箱│ │ 数据分析 │  │
+│  │ 服务     │ │(Composer +│ │ 引擎     │ │(Social   │ │ 服务     │  │
+│  │         │ │ Templates)│ │(Scheduler)│ │ Inbox)   │ │(Analytics│  │
+│  └─────────┘ └───────────┘ └──────────┘ └──────────┘ └─────────┘  │
+│  ┌─────────┐ ┌───────────┐ ┌──────────┐ ┌──────────┐ ┌─────────┐  │
+│  │AI 内容  │ │ 媒体资产  │ │ 线索管理  │ │ 审批工作流│ │ 通知    │  │
+│  │生成服务 │ │ 库服务    │ │(CRM整合) │ │ 服务     │ │ 服务     │  │
+│  └─────────┘ └───────────┘ └──────────┘ └──────────┘ └─────────┘  │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                       集成层 (Integration Layer)                     │
+│                                                                     │
+│  ┌──────────────────────────────────────────────────────────────┐   │
+│  │             社媒 API 适配器 (Provider Adapters)                 │   │
+│  │  Facebook │ Instagram │ LinkedIn │ TikTok │ YouTube │ X/Twitter│  │
+│  │  Pinterest │ Threads │ Bluesky │ Google Business │ Mastodon  │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+│                                                                     │
+│  ┌──────────────────────┐  ┌────────────────────────────────────┐   │
+│  │  CRM 集成 (Salesforce │  │ 电商平台集成                        │   │
+│  │  / HubSpot / 纷享销客)│  │ (Shopify / 阿里国际站 / Made-in-    │   │
+│  └──────────────────────┘  │  China.com)                         │   │
+│                            └────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                     基础设施层 (Infrastructure)                       │
+│                                                                     │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────┐ ┌───────────┐  │
+│  │PostgreSQL│ │  Redis   │ │ 对象存储  │ │ 消息队列│ │ Temporal  │  │
+│  │ (主库)    │ │ (缓存/   │ │ (S3兼容)  │ │ (Kafka/│ │ (工作流    │  │
+│  │          │ │  Session)│ │          │ │  RMQ)  │ │  引擎)    │  │
+│  └──────────┘ └──────────┘ └──────────┘ └────────┘ └───────────┘  │
+│                                                                     │
+│  ┌──────────┐ ┌──────────┐ ┌───────────────────────────────────┐   │
+│  │  Elastic  │ │  Docker  │ │  部署环境                          │   │
+│  │  Search   │ │  &amp; K8s   │ │  阿里云 / 腾讯云 / AWS / 自部署    │   │
+│  └──────────┘ └──────────┘ └───────────────────────────────────┘   │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<hr/>
+<h2 id="三技术选型">三、技术选型<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#三技术选型" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="31-方案一postiz-技术栈路线推荐灵活性高">3.1 方案一：Postiz 技术栈路线（推荐，灵活性高）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31-方案一postiz-技术栈路线推荐灵活性高" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>层</th><th>技术选型</th><th>理由</th></tr></thead><tbody><tr><td>前端</td><td><strong>Next.js 14+ (React) + Tailwind CSS + shadcn/ui</strong></td><td>SSR 利于 SEO，RSC 性能好，社区庞大</td></tr><tr><td>后端</td><td><strong>NestJS (Node.js/TypeScript)</strong></td><td>模块化架构，与前端同语言，生态丰富</td></tr><tr><td>数据库</td><td><strong>PostgreSQL + Prisma ORM</strong></td><td>类型安全，迁移方便，PostGIS 支持地理查询</td></tr><tr><td>缓存</td><td><strong>Redis</strong></td><td>Session 存储、队列、缓存</td></tr><tr><td>工作流</td><td><strong>Temporal</strong></td><td>社媒发布需要可靠重试、定时、补偿事务</td></tr><tr><td>消息队列</td><td><strong>RabbitMQ / Kafka</strong></td><td>异步处理通知、数据回传</td></tr><tr><td>搜索引擎</td><td><strong>Elasticsearch</strong></td><td>社交收件箱搜索、媒体库 AI 搜索</td></tr><tr><td>对象存储</td><td><strong>MinIO / 阿里云OSS / AWS S3</strong></td><td>媒体文件存储</td></tr><tr><td>容器化</td><td><strong>Docker + Docker Compose / Kubernetes</strong></td><td>标准化部署</td></tr><tr><td>AI 服务</td><td><strong>OpenAI API / 通义千问 / Claude API</strong></td><td>内容生成、翻译、分析</td></tr></tbody></table></div>
+<h3 id="32-方案二brightbean-技术栈路线适合快速-mvp">3.2 方案二：BrightBean 技术栈路线（适合快速 MVP）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#32-方案二brightbean-技术栈路线适合快速-mvp" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>层</th><th>技术选型</th></tr></thead><tbody><tr><td>后端</td><td><strong>Python Django 5.x + DRF</strong></td></tr><tr><td>前端</td><td><strong>Django Templates + HTMX + Alpine.js + Tailwind CSS</strong></td></tr><tr><td>数据库</td><td><strong>PostgreSQL</strong></td></tr><tr><td>工作流</td><td><strong>Celery + Redis</strong></td></tr><tr><td>部署</td><td><strong>Docker + Caddy</strong></td></tr></tbody></table></div>
+<blockquote>
+<p><strong>建议 MVP 阶段先用 BrightBean 的 Django 路线，快速搭建核心功能；中期平滑迁移到 Postiz 的微服务架构以支撑多租户和高并发。</strong></p>
+</blockquote>
+<hr/>
+<h2 id="四核心模块详细设计">四、核心模块详细设计<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#四核心模块详细设计" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="41-多租户与团队管理">4.1 多租户与团队管理<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#41-多租户与团队管理" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Organization (组织)
+  ├── Workspace (工作空间，多个)
+  │   ├── Member (成员) — RBAC 角色：Owner / Admin / Editor / Viewer / Client
+  │   ├── SocialAccount (社媒账号)
+  │   ├── Post (内容)
+  │   ├── Media (媒体)
+  │   └── Settings (配置)
+  └── Billing (计费)
+</code></pre>
+<ul>
+<li>参考 BrightBean 的无限组织/工作空间/成员设计</li>
+<li>每租户独立数据池（Row-Level Security 或 Schema-per-Tenant）</li>
+<li><strong>外贸场景特色：Client Portal</strong> — 客户无需注册即可通过魔法链接预览/审批内容</li>
+</ul>
+<h3 id="42-社媒账号集成provider-layer">4.2 社媒账号集成（Provider Layer）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#42-社媒账号集成provider-layer" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>参考 BrightBean 的 Provider 架构 + Postiz 的多平台支持：</p>
+<pre><code>providers/
+├── base.py              # BaseProvider 抽象类
+├── facebook.py          # Meta Graph API
+├── instagram.py
+├── instagram_direct.py  # Instagram Login (Business/Creator)
+├── linkedin_personal.py # LinkedIn OIDC
+├── linkedin_company.py  # LinkedIn Community Management API
+├── tiktok.py            # TikTok Content Posting API
+├── youtube.py           # YouTube Data API v3
+├── pinterest.py         # Pinterest API
+├── threads.py           # Threads API
+├── bluesky.py           # Bluesky AT Protocol
+├── x.py                 # X/Twitter API v2
+├── google_business.py   # Google Business Profile API
+└── mastodon.py          # Mastodon OAuth
+</code></pre>
+<p><strong>核心原则</strong>：直接对接各平台官方 API，不经过第三方聚合层，数据完全自主掌控。</p>
+<p><strong>外贸特化策略</strong>：</p>
+<ul>
+<li>LinkedIn 是企业级 B2B 获客核心渠道，优先优化 LinkedIn 公司页和个人号双通道</li>
+<li>TikTok/YouTube 用于产品视频展示，支持中英双语字幕</li>
+<li>Pinterest 用于产品图册（家居/服装/礼品行业）</li>
+</ul>
+<h3 id="43-ai-内容生成引擎">4.3 AI 内容生成引擎<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#43-ai-内容生成引擎" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>这是外贸场景最核心的差异化模块：</p>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│                   AI Content Engine                          │
+│                                                             │
+│  ┌────────────┐  ┌──────────────┐  ┌────────────────────┐  │
+│  │ 多语言翻译  │  │ 产品描述→社媒 │  │ 图片/视频生成      │  │
+│  │ 中→英/西/  │  │ 帖文自动生成   │  │ 产品图→各平台尺寸  │  │
+│  │ 法/阿/葡   │  │ (AIDA/SONPL) │  │ AI 文生视频       │  │
+│  └────────────┘  └──────────────┘  └────────────────────┘  │
+│                                                             │
+│  ┌────────────┐  ┌──────────────┐  ┌────────────────────┐  │
+│  │ 帖文优化    │  │ 最佳发布时间  │  │ 合规检查            │  │
+│  │ 中式英文→   │  │ 基于目标市场  │  │ 各平台规则检查      │  │
+│  │ 本地化表达  │  │ 算法推荐     │  │ + 敏感词过滤        │  │
+│  └────────────┘  └──────────────┘  └────────────────────┘  │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="44-内容发布调度引擎">4.4 内容发布调度引擎<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#44-内容发布调度引擎" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>参考 BrightBean 的 <code>process_tasks</code> worker 和 Temporal 工作流引擎：</p>
+<pre><code>Schedule Post Request
+       │
+       ▼
+┌──────────────────┐
+│ Validation &amp;     │
+│ Rate Limit Check │──────── 检查各平台配额
+└────────┬─────────┘
+         │
+         ▼
+┌──────────────────┐
+│ 暂存为 Draft     │──→ 如需审批，进入 Approval Workflow
+└────────┬─────────┘
+         │
+         ▼
+┌──────────────────┐     ┌─────────────────────┐
+│ Temporal Workflow│────→│ Publish Activity    │
+│ (可靠重试)        │     │   ├─ Facebook API   │
+│                  │     │   ├─ LinkedIn API   │
+│                  │     │   └─ ...            │
+│                  │     └─────────┬───────────┘
+│                  │               │ 失败
+│                  │     ┌─────────▼───────────┐
+│                  │     │ Retry with Backoff  │
+│                  │     │ (指数退避, 最多3次)   │
+│                  │     └─────────────────────┘
+└──────────────────┘
+         │
+         ▼
+┌──────────────────┐
+│ 写入 Publish Log │──→ 90天发布审计日志
+└──────────────────┘
+</code></pre>
+<p><strong>外贸场景特化</strong>：支持”多平台一次发布”（LinkedIn + Facebook + X 同时推送同一条产品动态，各平台内容自动适配）</p>
+<h3 id="45-统一社媒收件箱-social-inbox">4.5 统一社媒收件箱 (Social Inbox)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#45-统一社媒收件箱-social-inbox" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>参考 BrightBean 的 Social Inbox + sentiment analysis：</p>
+<ul>
+<li>跨平台聚合评论、私信、@提及</li>
+<li>外贸场景：<strong>自动识别询盘意向</strong> — AI 分类”询价/样品/合作/投诉”</li>
+<li>支持团队分配 + 回复模板</li>
+<li>Webhook 即时推送（钉钉/企微通知，不错过海外客户）</li>
+</ul>
+<h3 id="46-数据分析与归因">4.6 数据分析与归因<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#46-数据分析与归因" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>┌─────────────────────────────────────────────┐
+│            Analytics Engine                   │
+│                                              │
+│  各平台原生 API → 统一数据模型 → KPI 面板     │
+│                                              │
+│  ┌────────────────────────────────────────┐  │
+│  │  核心指标                               │  │
+│  │  ├─ 曝光 (Impressions)                  │  │
+│  │  ├─ 互动 (Engagement Rate)              │  │
+│  │  ├─ 点击 (Clicks)                       │  │
+│  │  ├─ 粉丝增长 (Follower Growth)          │  │
+│  │  └─ 询盘线索 (Lead Attribution)         │◄── 外贸核心KPI
+│  └────────────────────────────────────────┘  │
+│                                              │
+│  对比功能：本周 vs 上周 vs 去年同期            │
+│  最佳帖文分析：什么类型的帖文互动最高            │
+└─────────────────────────────────────────────┘
+</code></pre>
+<p><strong>询盘归因</strong>（外贸独有）：</p>
+<ul>
+<li>每条社媒帖文挂载 UTM 参数 + 短链接</li>
+<li>追踪：帖文曝光 → 独立站访问 → 询盘表单提交 → 成交</li>
+<li>完整 LTV 归因链路</li>
+</ul>
+<h3 id="47-线索管理外贸-crm-整合">4.7 线索管理（外贸 CRM 整合）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#47-线索管理外贸-crm-整合" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Social Post → Click → Landing Page → Inquiry Form
+                                         │
+                                         ▼
+┌─────────────────────────────────────────────┐
+│                Lead Service                   │
+│                                              │
+│  ├─ 自动抓取社媒询盘评论/私信                 │
+│  ├─ LinkedIn Sales Navigator 集成             │
+│  ├─ 线索评分 (意向度 + 公司规模 + 地区)        │
+│  ├─ 自动分配至对应业务员                       │
+│  └─ 与 阿里国际站 / 纷享销客 / HubSpot 同步    │
+└─────────────────────────────────────────────┘
+</code></pre>
+<hr/>
+<h2 id="五数据模型核心设计">五、数据模型核心设计<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#五数据模型核心设计" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="51-多租户模型">5.1 多租户模型<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#51-多租户模型" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="prisma" data-theme="github-light github-dark"><code data-language="prisma" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="keyword">model</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="property"> Organization</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation"> {</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  id          </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function">   @id</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function"> @default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="function">cuid</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">())</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  name        </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  slug        </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function">   @unique</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  avatar      </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">?</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  plan        </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">PlanType</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function"> @default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">FREE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  createdAt   </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">DateTime</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function"> @default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="function">now</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">())</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  deletedAt   </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">DateTime</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">?</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  workspaces  </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">Workspace</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  members     </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">Member</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  apiKeys     </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">ApiKey</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="keyword">model</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="property"> Workspace</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation"> {</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  id          </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function">   @id</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function"> @default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="function">cuid</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">())</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  name        </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  organization </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">Organization</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function"> @relation</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">fields</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: [</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">organizationId</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">], </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">references</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: [</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">id</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">])</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  organizationId </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  branding    </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">Json</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">?</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment">      // 白标：logo、主色调</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  timezone    </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function">     @default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;Asia/Shanghai&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  defaultHashtags </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  posts       </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">Post</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  socialAccounts </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">SocialAccount</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  media       </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">Media</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  members     </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">Member</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<h3 id="52-发布模型">5.2 发布模型<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#52-发布模型" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="prisma" data-theme="github-light github-dark"><code data-language="prisma" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="keyword">model</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="property"> Post</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation"> {</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  id              </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function">   @id</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function"> @default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="function">cuid</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">())</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  workspaceId     </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  title           </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">?</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  content         </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">Json</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment">     // 各平台内容 [{platform: &quot;linkedin&quot;, text: &quot;...&quot;}, ...]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  media           </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">Media</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  status          </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">PostStatus</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function"> @default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">DRAFT</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">)</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment">  // DRAFT → PENDING_APPROVAL → SCHEDULED → PUBLISHING → PUBLISHED / FAILED</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  scheduledAt     </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">DateTime</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">?</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  publishedAt     </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">DateTime</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">?</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  createdAt       </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">DateTime</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function"> @default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="function">now</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">())</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  createdBy       </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment">   // 用户 ID</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  platforms       </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">PostPlatform</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment"> // 目标发布平台</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  publishLogs     </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">PublishLog</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  analytics       </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">PostAnalytics</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  approvals       </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">Approval</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">[]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="keyword">model</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="property"> PostPlatform</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation"> {</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  id          </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function">   @id</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function"> @default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="function">cuid</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">())</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  postId      </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  accountId   </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment">   // 关联 SocialAccount</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  platform    </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">Platform</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  status      </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">PublishStatus</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;" data-token-type="function"> @default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">PENDING</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  platformPostId </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">?</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment">  // 发布后在平台的Post ID</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  errorMessage </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">String</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">?</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  publishedAt </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="property">DateTime</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="operator">?</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<hr/>
+<h2 id="六安全性设计">六、安全性设计<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#六安全性设计" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>安全领域</th><th>方案</th><th>参考</th></tr></thead><tbody><tr><td>凭据存储</td><td>AES-256 加密后存入数据库，密钥环境变量注入</td><td>BrightBean 的 <code>encrypted_fields</code></td></tr><tr><td>OAuth Token</td><td>使用 Refresh Token 自动续期，减少用户手动重连</td><td>Postiz OAuth 模式</td></tr><tr><td>API 认证</td><td>JWT + API Key (Bearer Token) 双体系</td><td>BrightBean API Key 设计</td></tr><tr><td>权限控制</td><td>RBAC (Organization → Workspace → Member)，每个端点鉴权</td><td>BrightBean members middleware</td></tr><tr><td>数据隔离</td><td>Row-Level Security 或 Schema-per-Tenant</td><td></td></tr><tr><td>审计日志</td><td>所有发布操作记录 90 天可追溯</td><td>BrightBean Publish Log</td></tr><tr><td>2FA</td><td>TOTP 双因素认证</td><td>BrightBean 路线图</td></tr><tr><td>社媒合规</td><td>不代理、不聚合、不爬取，只用官方 OAuth</td><td>Postiz Compliance 声明</td></tr></tbody></table></div>
+<hr/>
+<h2 id="七部署架构">七、部署架构<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#七部署架构" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="71-自部署方案面向技术型用户">7.1 自部署方案（面向技术型用户）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#71-自部署方案面向技术型用户" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+│  Caddy/Nginx  │  │  PostgreSQL  │  │   Redis       │
+│  (反向代理+   │  │  (主从复制)    │  │  (主从/集群)   │
+│  自动HTTPS)   │  └──────────────┘  └──────────────┘
+└──────┬───────┘
+       │
+┌──────▼────────────────────────────────────────┐
+│             Docker Compose / K8s               │
+│                                                │
+│  ┌──────────┐ ┌──────────┐ ┌────────────────┐ │
+│  │ Web App  │ │ API App  │ │  Background     │ │
+│  │ (Next.js)│ │ (NestJS) │ │  Worker         │ │
+│  └──────────┘ └──────────┘ │  (Temporal)     │ │
+│                            └────────────────┘ │
+│  ┌──────────┐ ┌──────────┐ ┌────────────────┐ │
+│  │ MinIO    │ │ Elastic- │ │  Temporal       │ │
+│  │ (对象存储) │ │  search  │ │  Server          │ │
+│  └──────────┘ └──────────┘ └────────────────┘ │
+└────────────────────────────────────────────────┘
+</code></pre>
+<h3 id="72-saas-云部署方案面向平台运营方">7.2 SaaS 云部署方案（面向平台运营方）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#72-saas-云部署方案面向平台运营方" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>服务</th><th>阿里云</th><th>腾讯云</th><th>AWS</th></tr></thead><tbody><tr><td>计算</td><td>ACK / ECS</td><td>TKE / CVM</td><td>ECS / EKS</td></tr><tr><td>数据库</td><td>RDS PostgreSQL</td><td>TDSQL</td><td>RDS PostgreSQL</td></tr><tr><td>缓存</td><td>Redis</td><td>CRS</td><td>ElastiCache</td></tr><tr><td>存储</td><td>OSS</td><td>COS</td><td>S3</td></tr><tr><td>CDN</td><td>CDN</td><td>CDN</td><td>CloudFront</td></tr><tr><td>AI</td><td>通义千问 API</td><td>混元大模型</td><td>Bedrock</td></tr></tbody></table></div>
+<hr/>
+<h2 id="八外贸特色功能矩阵">八、外贸特色功能矩阵<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#八外贸特色功能矩阵" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>功能</th><th>优先级</th><th>说明</th></tr></thead><tbody><tr><td><strong>LinkedIn 深度集成</strong></td><td>P0</td><td>B2B 外贸核心渠道，公司页 + 个人号双通，InMail 回复</td></tr><tr><td><strong>AI 中→英/西/法/阿/葡 内容生成</strong></td><td>P0</td><td>产品描述自动转化为本地化社媒帖文</td></tr><tr><td><strong>多平台一次发布</strong></td><td>P0</td><td>一条产品动态同步到 FB/LinkedIn/X/Pinterest</td></tr><tr><td><strong>询盘自动识别</strong></td><td>P0</td><td>AI 识别评论/私信中的采购意向并自动分配</td></tr><tr><td><strong>最佳发帖时间推荐</strong></td><td>P1</td><td>基于目标市场时区（美东/欧洲/中东）</td></tr><tr><td><strong>社媒→独立站归因</strong></td><td>P1</td><td>UTM + 短链接追踪完整转化路径</td></tr><tr><td><strong>产品图→视频自动生成</strong></td><td>P1</td><td>适合 TikTok/YouTube Shorts/Reels</td></tr><tr><td><strong>合规检查</strong></td><td>P1</td><td>各平台内容政策 + 目标市场敏感词过滤</td></tr><tr><td><strong>客户门户 (Client Portal)</strong></td><td>P2</td><td>外贸代理给客户审批内容，无需客户注册</td></tr><tr><td><strong>WhatsApp Business 集成</strong></td><td>P2</td><td>外贸沟通核心渠道，统一收件箱</td></tr><tr><td><strong>阿里国际站数据对接</strong></td><td>P2</td><td>将国际站产品库同步至社媒内容库</td></tr><tr><td><strong>团队协作与审批流</strong></td><td>P2</td><td>外贸团队：业务员→主管→客户 三级审批</td></tr></tbody></table></div>
+<hr/>
+<h2 id="九商业化模型">九、商业化模型<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#九商业化模型" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>层</th><th>免费版</th><th>专业版 ($29/月)</th><th>企业版 ($99/月)</th></tr></thead><tbody><tr><td>社媒账号数</td><td>3个</td><td>10个</td><td>无限</td></tr><tr><td>工作空间</td><td>1个</td><td>5个</td><td>无限</td></tr><tr><td>AI 生成次数</td><td>50次/月</td><td>500次/月</td><td>无限</td></tr><tr><td>团队成员</td><td>2人</td><td>10人</td><td>无限</td></tr><tr><td>客户门户</td><td>—</td><td>✓</td><td>✓</td></tr><tr><td>高级分析</td><td>—</td><td>✓</td><td>✓</td></tr><tr><td>API 访问</td><td>—</td><td>1000次/天</td><td>10000次/天</td></tr><tr><td>白标</td><td>—</td><td>—</td><td>✓</td></tr><tr><td>自部署</td><td>✓</td><td>✓</td><td>✓</td></tr></tbody></table></div>
+<hr/>
+<h2 id="十路线图建议">十、路线图建议<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#十路线图建议" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>Phase 1 (MVP - 2个月)
+├── 多租户 + 团队管理
+├── Facebook / LinkedIn / X 发布
+├── 基础日历调度
+├── 简单内容编辑器
+└── AI 翻译 (中→英)
+
+Phase 2 (核心 - 2个月)
+├── Instagram / TikTok / YouTube / Pinterest
+├── 多平台一次发布
+├── AI 内容生成 (产品→帖文)
+├── 统一社媒收件箱
+├── 基础分析面板
+└── 审批工作流
+
+Phase 3 (增长 - 3个月)
+├── 询盘自动识别 + 线索管理
+├── CRM 集成
+├── 视频自动生成
+├── 最佳发布时间推荐
+├── 客户门户
+├── API + Webhook + MCP
+└── WhatsApp Business
+
+Phase 4 (生态 - 持续)
+├── 阿里国际站集成
+├── 归因分析
+├── AI Agent 自动发帖
+├── 移动端 App
+├── 小程序
+└── 社媒竞品监控
+</code></pre>
+<hr/>
+<h2 id="十一核心参考来源总结">十一、核心参考来源总结<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#十一核心参考来源总结" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>项目</th><th>可借鉴的核心价值</th></tr></thead><tbody><tr><td><strong>BrightBean Studio</strong></td><td>Provider 架构模式、多租户 RBAC 实现、HTMX 轻量前端、加密凭据存储、审批工作流、Client Portal 设计</td></tr><tr><td><strong>Postiz</strong></td><td>微服务架构（Next.js+NestJS+Temporal）、AI 内容生成范式、API 优先设计、N8N/Make 集成、多平台适配器</td></tr><tr><td><strong>SocialDatabase</strong></td><td>跨平台统一面板、AI 内容创作、3B+ 受众画像、内容库 AI 搜索、Paid+Organic 统一管理</td></tr></tbody></table></div></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-23" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#外贸社媒运营-saas-系统架构设计" data-for="外贸社媒运营-saas-系统架构设计">外贸社媒运营 SaaS 系统架构设计</a></li><li class="depth-1"><a href="#一外贸从业者核心痛点分析" data-for="一外贸从业者核心痛点分析">一、外贸从业者核心痛点分析</a></li><li class="depth-1"><a href="#二总体架构" data-for="二总体架构">二、总体架构</a></li><li class="depth-1"><a href="#三技术选型" data-for="三技术选型">三、技术选型</a></li><li class="depth-2"><a href="#31-方案一postiz-技术栈路线推荐灵活性高" data-for="31-方案一postiz-技术栈路线推荐灵活性高">3.1 方案一：Postiz 技术栈路线（推荐，灵活性高）</a></li><li class="depth-2"><a href="#32-方案二brightbean-技术栈路线适合快速-mvp" data-for="32-方案二brightbean-技术栈路线适合快速-mvp">3.2 方案二：BrightBean 技术栈路线（适合快速 MVP）</a></li><li class="depth-1"><a href="#四核心模块详细设计" data-for="四核心模块详细设计">四、核心模块详细设计</a></li><li class="depth-2"><a href="#41-多租户与团队管理" data-for="41-多租户与团队管理">4.1 多租户与团队管理</a></li><li class="depth-2"><a href="#42-社媒账号集成provider-layer" data-for="42-社媒账号集成provider-layer">4.2 社媒账号集成（Provider Layer）</a></li><li class="depth-2"><a href="#43-ai-内容生成引擎" data-for="43-ai-内容生成引擎">4.3 AI 内容生成引擎</a></li><li class="depth-2"><a href="#44-内容发布调度引擎" data-for="44-内容发布调度引擎">4.4 内容发布调度引擎</a></li><li class="depth-2"><a href="#45-统一社媒收件箱-social-inbox" data-for="45-统一社媒收件箱-social-inbox">4.5 统一社媒收件箱 (Social Inbox)</a></li><li class="depth-2"><a href="#46-数据分析与归因" data-for="46-数据分析与归因">4.6 数据分析与归因</a></li><li class="depth-2"><a href="#47-线索管理外贸-crm-整合" data-for="47-线索管理外贸-crm-整合">4.7 线索管理（外贸 CRM 整合）</a></li><li class="depth-1"><a href="#五数据模型核心设计" data-for="五数据模型核心设计">五、数据模型核心设计</a></li><li class="depth-2"><a href="#51-多租户模型" data-for="51-多租户模型">5.1 多租户模型</a></li><li class="depth-2"><a href="#52-发布模型" data-for="52-发布模型">5.2 发布模型</a></li><li class="depth-1"><a href="#六安全性设计" data-for="六安全性设计">六、安全性设计</a></li><li class="depth-1"><a href="#七部署架构" data-for="七部署架构">七、部署架构</a></li><li class="depth-2"><a href="#71-自部署方案面向技术型用户" data-for="71-自部署方案面向技术型用户">7.1 自部署方案（面向技术型用户）</a></li><li class="depth-2"><a href="#72-saas-云部署方案面向平台运营方" data-for="72-saas-云部署方案面向平台运营方">7.2 SaaS 云部署方案（面向平台运营方）</a></li><li class="depth-1"><a href="#八外贸特色功能矩阵" data-for="八外贸特色功能矩阵">八、外贸特色功能矩阵</a></li><li class="depth-1"><a href="#九商业化模型" data-for="九商业化模型">九、商业化模型</a></li><li class="depth-1"><a href="#十路线图建议" data-for="十路线图建议">十、路线图建议</a></li><li class="depth-1"><a href="#十一核心参考来源总结" data-for="十一核心参考来源总结">十一、核心参考来源总结</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="../../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript-3426b91c.js" type="module" data-persist="true"></script></html>

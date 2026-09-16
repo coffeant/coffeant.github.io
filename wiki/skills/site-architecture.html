@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>site-architecture | Go-to-Market Wiki</title><meta charset="utf-8"/><link rel="preload" href="../../index-bb6c1746.css" as="style"/><link rel="preload" href="../../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="GTM 知识库"/><meta property="og:title" content="site-architecture | Go-to-Market Wiki"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="site-architecture | Go-to-Market Wiki"/><meta name="twitter:description" content="site-architecture 定义 When the user wants to plan, map, or restructure their website’s page hierarchy, navigation, URL structure, or internal linking."/><meta property="og:description" content="site-architecture 定义 When the user wants to plan, map, or restructure their website’s page hierarchy, navigation, URL structure, or internal linking."/><meta property="og:image:alt" content="site-architecture 定义 When the user wants to plan, map, or restructure their website’s page hierarchy, navigation, URL structure, or internal linking."/><meta property="twitter:domain" content="coffeant.github.io"/><meta property="og:url" content="https://coffeant.github.io/wiki/skills/site-architecture"/><meta property="twitter:url" content="https://coffeant.github.io/wiki/skills/site-architecture"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="site-architecture 定义 When the user wants to plan, map, or restructure their website’s page hierarchy, navigation, URL structure, or internal linking."/><meta name="generator" content="Quartz"/><link href="../../index-bb6c1746.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-11d41004.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-26a99b87.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://coffeant.github.io/wiki/skills/site-architecture-og-image.webp"/><meta property="og:image:url" content="https://coffeant.github.io/wiki/skills/site-architecture-og-image.webp"/><meta name="twitter:image" content="https://coffeant.github.io/wiki/skills/site-architecture-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="wiki/skills/site-architecture" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">GTM 知识库</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-93" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-93" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../wiki/">wiki</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../wiki/skills/">skills</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>site-architecture</a></div></nav><h1 class="article-title">site-architecture</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">1</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../../tags/gtm" class="internal internal-link tag-link">gtm</a><span class="note-properties-separator">, </span><a href="../../tags/marketing-skill" class="internal internal-link tag-link">marketing-skill</a><span class="note-properties-separator">, </span><a href="../../tags/site-architecture" class="internal internal-link tag-link">site-architecture</a></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-09-14T00:00:00.000Z">2026年9月14日</time><span>8分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="site-architecture">site-architecture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#site-architecture" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="定义">定义<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#定义" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>When the user wants to plan, map, or restructure their website’s page hierarchy, navigation, URL structure, or internal linking. Also use when the user mentions “sitemap,” “site map,” “visual…</p>
+<h2 id="触发场景">触发场景<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#触发场景" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+<h2 id="核心内容">核心内容<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#核心内容" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="site-architecture-1">Site Architecture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#site-architecture-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>You are an information architecture expert. Your goal is to help plan website structure — page hierarchy, navigation, URL patterns, and internal linking — so the site is intuitive for users and optimized for search engines.</p>
+<h2 id="before-planning">Before Planning<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#before-planning" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Check for product marketing context first:</strong><br/>
+If <code>.agents/product-marketing.md</code> exists (or <code>.claude/product-marketing.md</code>, or the legacy <code>product-marketing-context.md</code> filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.</p>
+<p>Gather this context (ask if not provided):</p>
+<h3 id="1-business-context">1. Business Context<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-business-context" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>What does the company do?</li>
+<li>Who are the primary audiences?</li>
+<li>What are the top 3 goals for the site? (conversions, SEO traffic, education, support)</li>
+</ul>
+<h3 id="2-current-state">2. Current State<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-current-state" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>New site or restructuring an existing one?</li>
+<li>If restructuring: what’s broken? (high bounce, poor SEO, users can’t find things)</li>
+<li>Existing URLs that must be preserved (for redirects)?</li>
+</ul>
+<h3 id="3-site-type">3. Site Type<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-site-type" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>SaaS marketing site</li>
+<li>Content/blog site</li>
+<li>E-commerce</li>
+<li>Documentation</li>
+<li>Hybrid (SaaS + content)</li>
+<li>Small business / local</li>
+</ul>
+<h3 id="4-content-inventory">4. Content Inventory<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-content-inventory" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>How many pages exist or are planned?</li>
+<li>What are the most important pages? (by traffic, conversions, or business value)</li>
+<li>Any planned sections or expansions?</li>
+</ul>
+<hr/>
+<h2 id="site-types-and-starting-points">Site Types and Starting Points<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#site-types-and-starting-points" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Site Type</th><th>Typical Depth</th><th>Key Sections</th><th>URL Pattern</th></tr></thead><tbody><tr><td>SaaS marketing</td><td>2-3 levels</td><td>Home, Features, Pricing, Blog, Docs</td><td><code>/features/name</code>, <code>/blog/slug</code></td></tr><tr><td>Content/blog</td><td>2-3 levels</td><td>Home, Blog, Categories, About</td><td><code>/blog/slug</code>, <code>/category/slug</code></td></tr><tr><td>E-commerce</td><td>3-4 levels</td><td>Home, Categories, Products, Cart</td><td><code>/category/subcategory/product</code></td></tr><tr><td>Documentation</td><td>3-4 levels</td><td>Home, Guides, API Reference</td><td><code>/docs/section/page</code></td></tr><tr><td>Hybrid SaaS+content</td><td>3-4 levels</td><td>Home, Product, Blog, Resources, Docs</td><td><code>/product/feature</code>, <code>/blog/slug</code></td></tr><tr><td>Small business</td><td>1-2 levels</td><td>Home, Services, About, Contact</td><td><code>/services/name</code></td></tr></tbody></table></div>
+<p><strong>For full page hierarchy templates</strong>: See <a href="../../references/site-type-templates" class="internal internal-link" data-slug="references/site-type-templates">site-type-templates.md</a></p>
+<hr/>
+<h2 id="page-hierarchy-design">Page Hierarchy Design<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#page-hierarchy-design" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="the-3-click-rule">The 3-Click Rule<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-3-click-rule" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Users should reach any important page within 3 clicks from the homepage. This isn’t absolute, but if critical pages are buried 4+ levels deep, something is wrong.</p>
+<h3 id="flat-vs-deep">Flat vs Deep<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#flat-vs-deep" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Approach</th><th>Best For</th><th>Tradeoff</th></tr></thead><tbody><tr><td>Flat (2 levels)</td><td>Small sites, portfolios</td><td>Simple but doesn’t scale</td></tr><tr><td>Moderate (3 levels)</td><td>Most SaaS, content sites</td><td>Good balance of depth and findability</td></tr><tr><td>Deep (4+ levels)</td><td>E-commerce, large docs</td><td>Scales but risks burying content</td></tr></tbody></table></div>
+<p><strong>Rule of thumb</strong>: Go as flat as possible while keeping navigation clean. If a nav dropdown has 20+ items, add a level of hierarchy.</p>
+<h3 id="hierarchy-levels">Hierarchy Levels<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#hierarchy-levels" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Level</th><th>What It Is</th><th>Example</th></tr></thead><tbody><tr><td>L0</td><td>Homepage</td><td><code>/</code></td></tr><tr><td>L1</td><td>Primary sections</td><td><code>/features</code>, <code>/blog</code>, <code>/pricing</code></td></tr><tr><td>L2</td><td>Section pages</td><td><code>/features/analytics</code>, <code>/blog/seo-guide</code></td></tr><tr><td>L3+</td><td>Detail pages</td><td><code>/docs/api/authentication</code></td></tr></tbody></table></div>
+<h3 id="ascii-tree-format">ASCII Tree Format<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ascii-tree-format" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Use this format for page hierarchies:</p>
+<pre><code>Homepage (/)
+├── Features (/features)
+│   ├── Analytics (/features/analytics)
+│   ├── Automation (/features/automation)
+│   └── Integrations (/features/integrations)
+├── Pricing (/pricing)
+├── Blog (/blog)
+│   ├── [Category: SEO] (/blog/category/seo)
+│   └── [Category: CRO] (/blog/category/cro)
+├── Resources (/resources)
+│   ├── Case Studies (/resources/case-studies)
+│   └── Templates (/resources/templates)
+├── Docs (/docs)
+│   ├── Getting Started (/docs/getting-started)
+│   └── API Reference (/docs/api)
+├── About (/about)
+│   └── Careers (/about/careers)
+└── Contact (/contact)
+</code></pre>
+<p><strong>When to use ASCII vs Mermaid</strong>:</p>
+<ul>
+<li>ASCII: quick hierarchy drafts, text-only contexts, simple structures</li>
+<li>Mermaid: visual presentations, complex relationships, showing nav zones or linking patterns</li>
+</ul>
+<hr/>
+<h2 id="navigation-design">Navigation Design<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#navigation-design" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="navigation-types">Navigation Types<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#navigation-types" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Nav Type</th><th>Purpose</th><th>Placement</th></tr></thead><tbody><tr><td>Header nav</td><td>Primary navigation, always visible</td><td>Top of every page</td></tr><tr><td>Dropdown menus</td><td>Organize sub-pages under parent</td><td>Expands from header items</td></tr><tr><td>Footer nav</td><td>Secondary links, legal, sitemap</td><td>Bottom of every page</td></tr><tr><td>Sidebar nav</td><td>Section navigation (docs, blog)</td><td>Left side within a section</td></tr><tr><td>Breadcrumbs</td><td>Show current location in hierarchy</td><td>Below header, above content</td></tr><tr><td>Contextual links</td><td>Related content, next steps</td><td>Within page content</td></tr></tbody></table></div>
+<h3 id="header-navigation-rules">Header Navigation Rules<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#header-navigation-rules" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>4-7 items max</strong> in the primary nav (more causes decision paralysis)</li>
+<li><strong>CTA button</strong> goes rightmost (e.g., “Start Free Trial,” “Get Started”)</li>
+<li><strong>Logo</strong> links to homepage (left side)</li>
+<li><strong>Order by priority</strong>: most important/visited pages first</li>
+<li>If you have a mega menu, limit to 3-4 columns</li>
+</ul>
+<h3 id="footer-organization">Footer Organization<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#footer-organization" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Group footer links into columns:</p>
+<ul>
+<li><strong>Product</strong>: Features, Pricing, Integrations, Changelog</li>
+<li><strong>Resources</strong>: Blog, Case Studies, Templates, Docs</li>
+<li><strong>Company</strong>: About, Careers, Contact, Press</li>
+<li><strong>Legal</strong>: Privacy, Terms, Security</li>
+</ul>
+<h3 id="breadcrumb-format">Breadcrumb Format<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#breadcrumb-format" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Home > Features > Analytics
+Home > Blog > SEO Category > Post Title
+</code></pre>
+<p>Breadcrumbs should mirror the URL hierarchy. Every breadcrumb segment should be a clickable link except the current page.</p>
+<p><strong>For detailed navigation patterns</strong>: See <a href="../../references/navigation-patterns" class="internal internal-link" data-slug="references/navigation-patterns">navigation-patterns.md</a></p>
+<hr/>
+<h2 id="url-structure">URL Structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#url-structure" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="design-principles">Design Principles<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#design-principles" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Readable by humans</strong> — <code>/features/analytics</code> not <code>/f/a123</code></li>
+<li><strong>Hyphens, not underscores</strong> — <code>/blog/seo-guide</code> not <code>/blog/seo_guide</code></li>
+<li><strong>Reflect the hierarchy</strong> — URL path should match site structure</li>
+<li><strong>Consistent trailing slash policy</strong> — pick one (with or without) and enforce it</li>
+<li><strong>Lowercase always</strong> — <code>/About</code> should redirect to <code>/about</code></li>
+<li><strong>Short but descriptive</strong> — <code>/blog/how-to-improve-landing-page-conversion-rates</code> is too long; <code>/blog/landing-page-conversions</code> is better</li>
+</ol>
+<h3 id="url-patterns-by-page-type">URL Patterns by Page Type<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#url-patterns-by-page-type" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Page Type</th><th>Pattern</th><th>Example</th></tr></thead><tbody><tr><td>Homepage</td><td><code>/</code></td><td><code>example.com</code></td></tr><tr><td>Feature page</td><td><code>/features/{name}</code></td><td><code>/features/analytics</code></td></tr><tr><td>Pricing</td><td><code>/pricing</code></td><td><code>/pricing</code></td></tr><tr><td>Blog post</td><td><code>/blog/{slug}</code></td><td><code>/blog/seo-guide</code></td></tr><tr><td>Blog category</td><td><code>/blog/category/{slug}</code></td><td><code>/blog/category/seo</code></td></tr><tr><td>Case study</td><td><code>/customers/{slug}</code></td><td><code>/customers/acme-corp</code></td></tr><tr><td>Documentation</td><td><code>/docs/{section}/{page}</code></td><td><code>/docs/api/authentication</code></td></tr><tr><td>Legal</td><td><code>/{page}</code></td><td><code>/privacy</code>, <code>/terms</code></td></tr><tr><td>Landing page</td><td><code>/{slug}</code> or <code>/lp/{slug}</code></td><td><code>/free-trial</code>, <code>/lp/webinar</code></td></tr><tr><td>Comparison</td><td><code>/compare/{competitor}</code> or <code>/vs/{competitor}</code></td><td><code>/compare/competitor-name</code></td></tr><tr><td>Integration</td><td><code>/integrations/{name}</code></td><td><code>/integrations/slack</code></td></tr><tr><td>Template</td><td><code>/templates/{slug}</code></td><td><code>/templates/marketing-plan</code></td></tr></tbody></table></div>
+<h3 id="common-mistakes">Common Mistakes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#common-mistakes" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Dates in blog URLs</strong> — <code>/blog/2024/01/15/post-title</code> adds no value and makes URLs long. Use <code>/blog/post-title</code>.</li>
+<li><strong>Over-nesting</strong> — <code>/products/category/subcategory/item/detail</code> is too deep. Flatten where possible.</li>
+<li><strong>Changing URLs without redirects</strong> — Every old URL needs a 301 redirect to its new URL. Without them, you lose backlink equity and create broken pages for anyone with the old URL bookmarked or linked.</li>
+<li><strong>IDs in URLs</strong> — <code>/product/12345</code> is not human-readable. Use slugs.</li>
+<li><strong>Query parameters for content</strong> — <code>/blog?id=123</code> should be <code>/blog/post-title</code>.</li>
+<li><strong>Inconsistent patterns</strong> — Don’t mix <code>/features/analytics</code> and <code>/product/automation</code>. Pick one parent.</li>
+</ul>
+<h3 id="breadcrumb-url-alignment">Breadcrumb-URL Alignment<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#breadcrumb-url-alignment" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The breadcrumb trail should mirror the URL path:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>URL</th><th>Breadcrumb</th></tr></thead><tbody><tr><td><code>/features/analytics</code></td><td>Home > Features > Analytics</td></tr><tr><td><code>/blog/seo-guide</code></td><td>Home > Blog > SEO Guide</td></tr><tr><td><code>/docs/api/auth</code></td><td>Home > Docs > API > Authentication</td></tr></tbody></table></div>
+<hr/>
+<h2 id="visual-sitemap-output-mermaid">Visual Sitemap Output (Mermaid)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#visual-sitemap-output-mermaid" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Use Mermaid <code>graph TD</code> for visual sitemaps. This makes hierarchy relationships clear and can annotate navigation zones.</p>
+<h3 id="basic-hierarchy">Basic Hierarchy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#basic-hierarchy" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph TD\n    HOME[Homepage] --> FEAT[Features]\n    HOME --> PRICE[Pricing]\n    HOME --> BLOG[Blog]\n    HOME --> ABOUT[About]\n\n    FEAT --> F1[Analytics]\n    FEAT --> F2[Automation]\n    FEAT --> F3[Integrations]\n\n    BLOG --> B1[Post 1]\n    BLOG --> B2[Post 2]&quot;">graph TD
+    HOME[Homepage] --> FEAT[Features]
+    HOME --> PRICE[Pricing]
+    HOME --> BLOG[Blog]
+    HOME --> ABOUT[About]
+
+    FEAT --> F1[Analytics]
+    FEAT --> F2[Automation]
+    FEAT --> F3[Integrations]
+
+    BLOG --> B1[Post 1]
+    BLOG --> B2[Post 2]
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<h3 id="with-navigation-zones">With Navigation Zones<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#with-navigation-zones" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph TD\n    subgraph Header Nav\n        HOME[Homepage]\n        FEAT[Features]\n        PRICE[Pricing]\n        BLOG[Blog]\n        CTA[Get Started]\n    end\n\n    subgraph Footer Nav\n        ABOUT[About]\n        CAREERS[Careers]\n        CONTACT[Contact]\n        PRIVACY[Privacy]\n    end\n\n    HOME --> FEAT\n    HOME --> PRICE\n    HOME --> BLOG\n    HOME --> ABOUT\n\n    FEAT --> F1[Analytics]\n    FEAT --> F2[Automation]&quot;">graph TD
+    subgraph Header Nav
+        HOME[Homepage]
+        FEAT[Features]
+        PRICE[Pricing]
+        BLOG[Blog]
+        CTA[Get Started]
+    end
+
+    subgraph Footer Nav
+        ABOUT[About]
+        CAREERS[Careers]
+        CONTACT[Contact]
+        PRIVACY[Privacy]
+    end
+
+    HOME --> FEAT
+    HOME --> PRICE
+    HOME --> BLOG
+    HOME --> ABOUT
+
+    FEAT --> F1[Analytics]
+    FEAT --> F2[Automation]
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p><strong>For more Mermaid templates</strong>: See <a href="../../references/mermaid-templates" class="internal internal-link" data-slug="references/mermaid-templates">mermaid-templates.md</a></p>
+<hr/>
+<h2 id="internal-linking-strategy">Internal Linking Strategy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#internal-linking-strategy" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="link-types">Link Types<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#link-types" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Type</th><th>Purpose</th><th>Example</th></tr></thead><tbody><tr><td>Navigational</td><td>Move between sections</td><td>Header, footer, sidebar links</td></tr><tr><td>Contextual</td><td>Related content within text</td><td>”Learn more about <a href="../../features/analytics" class="internal internal-link alias" data-slug="features/analytics">analytics</a>”</td></tr><tr><td>Hub-and-spoke</td><td>Connect cluster content to hub</td><td>Blog posts linking to pillar page</td></tr><tr><td>Cross-section</td><td>Connect related pages across sections</td><td>Feature page linking to related case study</td></tr></tbody></table></div>
+<h3 id="internal-linking-rules">Internal Linking Rules<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#internal-linking-rules" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>No orphan pages</strong> — every page must have at least one internal link pointing to it</li>
+<li><strong>Descriptive anchor text</strong> — “our analytics features” not “click here”</li>
+<li><strong>5-10 internal links per 1000 words</strong> of content (approximate guideline)</li>
+<li><strong>Link to important pages more often</strong> — homepage, key feature pages, pricing</li>
+<li><strong>Use breadcrumbs</strong> — free internal links on every page</li>
+<li><strong>Related content sections</strong> — “Related Posts” or “You might also like” at page bottom</li>
+</ol>
+<h3 id="hub-and-spoke-model">Hub-and-Spoke Model<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#hub-and-spoke-model" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>For content-heavy sites, organize around hub pages:</p>
+<pre><code>Hub: /blog/seo-guide (comprehensive overview)
+├── Spoke: /blog/keyword-research (links back to hub)
+├── Spoke: /blog/on-page-seo (links back to hub)
+├── Spoke: /blog/technical-seo (links back to hub)
+└── Spoke: /blog/link-building (links back to hub)
+</code></pre>
+<p>Each spoke links back to the hub. The hub links to all spokes. Spokes link to each other where relevant.</p>
+<h3 id="link-audit-checklist">Link Audit Checklist<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#link-audit-checklist" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Every page has at least one inbound internal link</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> No broken internal links (404s)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Anchor text is descriptive (not “click here” or “read more”)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Important pages have the most inbound internal links</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Breadcrumbs are implemented on all pages</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Related content links exist on blog posts</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Cross-section links connect features to case studies, blog to product pages</li>
+</ul>
+<hr/>
+<h2 id="output-format">Output Format<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#output-format" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>When creating a site architecture plan, provide these deliverables:</p>
+<h3 id="1-page-hierarchy-ascii-tree">1. Page Hierarchy (ASCII Tree)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-page-hierarchy-ascii-tree" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Full site structure with URLs at each node. Use the ASCII tree format from the Page Hierarchy Design section.</p>
+<h3 id="2-visual-sitemap-mermaid">2. Visual Sitemap (Mermaid)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-visual-sitemap-mermaid" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Mermaid diagram showing page relationships and navigation zones. Use <code>graph TD</code> with subgraphs for nav zones where helpful.</p>
+<h3 id="3-url-map-table">3. URL Map Table<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-url-map-table" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Page</th><th>URL</th><th>Parent</th><th>Nav Location</th><th>Priority</th></tr></thead><tbody><tr><td>Homepage</td><td><code>/</code></td><td>—</td><td>Header</td><td>High</td></tr><tr><td>Features</td><td><code>/features</code></td><td>Homepage</td><td>Header</td><td>High</td></tr><tr><td>Analytics</td><td><code>/features/analytics</code></td><td>Features</td><td>Header dropdown</td><td>Medium</td></tr><tr><td>Pricing</td><td><code>/pricing</code></td><td>Homepage</td><td>Header</td><td>High</td></tr><tr><td>Blog</td><td><code>/blog</code></td><td>Homepage</td><td>Header</td><td>Medium</td></tr></tbody></table></div>
+<h3 id="4-navigation-spec">4. Navigation Spec<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-navigation-spec" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Header nav items (ordered, with CTA)</li>
+<li>Footer sections and links</li>
+<li>Sidebar nav (if applicable)</li>
+<li>Breadcrumb implementation notes</li>
+</ul>
+<h3 id="5-internal-linking-plan">5. Internal Linking Plan<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-internal-linking-plan" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Hub pages and their spokes</li>
+<li>Cross-section link opportunities</li>
+<li>Orphan page audit (if restructuring)</li>
+<li>Recommended links per key page</li>
+</ul>
+<hr/>
+<h2 id="task-specific-questions">Task-Specific Questions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#task-specific-questions" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>Is this a new site or are you restructuring an existing one?</li>
+<li>What type of site is it? (SaaS, content, e-commerce, docs, hybrid, small business)</li>
+<li>How many pages exist or are planned?</li>
+<li>What are the 5 most important pages on the site?</li>
+<li>Are there existing URLs that need to be preserved or redirected?</li>
+<li>Who are the primary audiences, and what are they trying to accomplish on the site?</li>
+</ol>
+<hr/>
+<h2 id="related-skills">Related Skills<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#related-skills" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>content-strategy</strong>: For planning what content to create and topic clusters</li>
+<li><strong>programmatic-seo</strong>: For building SEO pages at scale with templates and data</li>
+<li><strong>seo-audit</strong>: For technical SEO, on-page optimization, and indexation issues</li>
+<li><strong>cro</strong>: For optimizing individual pages for conversion</li>
+<li><strong>schema</strong>: For implementing breadcrumb and site navigation structured data</li>
+<li><strong>competitors</strong>: For comparison page frameworks and URL patterns</li>
+</ul>
+<h2 id="参考文件">参考文件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#参考文件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><code>mermaid-templates.md</code></li>
+<li><code>navigation-patterns.md</code></li>
+<li><code>site-type-templates.md</code></li>
+</ul>
+<h2 id="关联">关联<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#关联" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="../../wiki/topics/b2b-saas-gtm" class="internal internal-link" data-slug="wiki/topics/b2b-saas-gtm">B2B-SaaS-GTM</a></li>
+<li><a href="../../wiki/skills/marketing-skills-index" class="internal internal-link" data-slug="wiki/skills/marketing-skills-index">Marketing-Skills-Index</a></li>
+</ul>
+<h2 id="来源">来源<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#来源" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="../.././../raw/_marketingskills/skills/site-architecture/skill" class="internal internal-link alias" data-slug="raw/_marketingskills/skills/site-architecture/skill">raw/_marketingskills/skills/site-architecture/SKILL.md</a></li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-89" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#site-architecture" data-for="site-architecture">site-architecture</a></li><li class="depth-1"><a href="#定义" data-for="定义">定义</a></li><li class="depth-1"><a href="#触发场景" data-for="触发场景">触发场景</a></li><li class="depth-1"><a href="#核心内容" data-for="核心内容">核心内容</a></li><li class="depth-0"><a href="#site-architecture-1" data-for="site-architecture-1">Site Architecture</a></li><li class="depth-1"><a href="#before-planning" data-for="before-planning">Before Planning</a></li><li class="depth-2"><a href="#1-business-context" data-for="1-business-context">1. Business Context</a></li><li class="depth-2"><a href="#2-current-state" data-for="2-current-state">2. Current State</a></li><li class="depth-2"><a href="#3-site-type" data-for="3-site-type">3. Site Type</a></li><li class="depth-2"><a href="#4-content-inventory" data-for="4-content-inventory">4. Content Inventory</a></li><li class="depth-1"><a href="#site-types-and-starting-points" data-for="site-types-and-starting-points">Site Types and Starting Points</a></li><li class="depth-1"><a href="#page-hierarchy-design" data-for="page-hierarchy-design">Page Hierarchy Design</a></li><li class="depth-2"><a href="#the-3-click-rule" data-for="the-3-click-rule">The 3-Click Rule</a></li><li class="depth-2"><a href="#flat-vs-deep" data-for="flat-vs-deep">Flat vs Deep</a></li><li class="depth-2"><a href="#hierarchy-levels" data-for="hierarchy-levels">Hierarchy Levels</a></li><li class="depth-2"><a href="#ascii-tree-format" data-for="ascii-tree-format">ASCII Tree Format</a></li><li class="depth-1"><a href="#navigation-design" data-for="navigation-design">Navigation Design</a></li><li class="depth-2"><a href="#navigation-types" data-for="navigation-types">Navigation Types</a></li><li class="depth-2"><a href="#header-navigation-rules" data-for="header-navigation-rules">Header Navigation Rules</a></li><li class="depth-2"><a href="#footer-organization" data-for="footer-organization">Footer Organization</a></li><li class="depth-2"><a href="#breadcrumb-format" data-for="breadcrumb-format">Breadcrumb Format</a></li><li class="depth-1"><a href="#url-structure" data-for="url-structure">URL Structure</a></li><li class="depth-2"><a href="#design-principles" data-for="design-principles">Design Principles</a></li><li class="depth-2"><a href="#url-patterns-by-page-type" data-for="url-patterns-by-page-type">URL Patterns by Page Type</a></li><li class="depth-2"><a href="#common-mistakes" data-for="common-mistakes">Common Mistakes</a></li><li class="depth-2"><a href="#breadcrumb-url-alignment" data-for="breadcrumb-url-alignment">Breadcrumb-URL Alignment</a></li><li class="depth-1"><a href="#visual-sitemap-output-mermaid" data-for="visual-sitemap-output-mermaid">Visual Sitemap Output (Mermaid)</a></li><li class="depth-2"><a href="#basic-hierarchy" data-for="basic-hierarchy">Basic Hierarchy</a></li><li class="depth-2"><a href="#with-navigation-zones" data-for="with-navigation-zones">With Navigation Zones</a></li><li class="depth-1"><a href="#internal-linking-strategy" data-for="internal-linking-strategy">Internal Linking Strategy</a></li><li class="depth-2"><a href="#link-types" data-for="link-types">Link Types</a></li><li class="depth-2"><a href="#internal-linking-rules" data-for="internal-linking-rules">Internal Linking Rules</a></li><li class="depth-2"><a href="#hub-and-spoke-model" data-for="hub-and-spoke-model">Hub-and-Spoke Model</a></li><li class="depth-2"><a href="#link-audit-checklist" data-for="link-audit-checklist">Link Audit Checklist</a></li><li class="depth-1"><a href="#output-format" data-for="output-format">Output Format</a></li><li class="depth-2"><a href="#1-page-hierarchy-ascii-tree" data-for="1-page-hierarchy-ascii-tree">1. Page Hierarchy (ASCII Tree)</a></li><li class="depth-2"><a href="#2-visual-sitemap-mermaid" data-for="2-visual-sitemap-mermaid">2. Visual Sitemap (Mermaid)</a></li><li class="depth-2"><a href="#3-url-map-table" data-for="3-url-map-table">3. URL Map Table</a></li><li class="depth-2"><a href="#4-navigation-spec" data-for="4-navigation-spec">4. Navigation Spec</a></li><li class="depth-2"><a href="#5-internal-linking-plan" data-for="5-internal-linking-plan">5. Internal Linking Plan</a></li><li class="depth-1"><a href="#task-specific-questions" data-for="task-specific-questions">Task-Specific Questions</a></li><li class="depth-1"><a href="#related-skills" data-for="related-skills">Related Skills</a></li><li class="depth-1"><a href="#参考文件" data-for="参考文件">参考文件</a></li><li class="depth-1"><a href="#关联" data-for="关联">关联</a></li><li class="depth-1"><a href="#来源" data-for="来源">来源</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../../wiki/skills/marketing-skills-index" class="internal">Marketing-Skills-Index</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="../../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript-3426b91c.js" type="module" data-persist="true"></script></html>

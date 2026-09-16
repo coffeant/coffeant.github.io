@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>ab-testing | Go-to-Market Wiki</title><meta charset="utf-8"/><link rel="preload" href="../../index-bb6c1746.css" as="style"/><link rel="preload" href="../../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="GTM 知识库"/><meta property="og:title" content="ab-testing | Go-to-Market Wiki"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="ab-testing | Go-to-Market Wiki"/><meta name="twitter:description" content="ab-testing 定义 When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program."/><meta property="og:description" content="ab-testing 定义 When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program."/><meta property="og:image:alt" content="ab-testing 定义 When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program."/><meta property="twitter:domain" content="coffeant.github.io"/><meta property="og:url" content="https://coffeant.github.io/wiki/skills/ab-testing"/><meta property="twitter:url" content="https://coffeant.github.io/wiki/skills/ab-testing"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="ab-testing 定义 When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program."/><meta name="generator" content="Quartz"/><link href="../../index-bb6c1746.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-11d41004.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-26a99b87.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://coffeant.github.io/wiki/skills/ab-testing-og-image.webp"/><meta property="og:image:url" content="https://coffeant.github.io/wiki/skills/ab-testing-og-image.webp"/><meta name="twitter:image" content="https://coffeant.github.io/wiki/skills/ab-testing-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="wiki/skills/ab-testing" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">GTM 知识库</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-47" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-47" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../wiki/">wiki</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../wiki/skills/">skills</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>ab-testing</a></div></nav><h1 class="article-title">ab-testing</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">1</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../../tags/gtm" class="internal internal-link tag-link">gtm</a><span class="note-properties-separator">, </span><a href="../../tags/marketing-skill" class="internal internal-link tag-link">marketing-skill</a><span class="note-properties-separator">, </span><a href="../../tags/ab-testing" class="internal internal-link tag-link">ab-testing</a></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-09-14T00:00:00.000Z">2026年9月14日</time><span>7分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="ab-testing">ab-testing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ab-testing" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="定义">定义<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#定义" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions “A/B test,” “split test,” “experiment,” “test…</p>
+<h2 id="触发场景">触发场景<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#触发场景" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+<h2 id="核心内容">核心内容<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#核心内容" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h1 id="ab-test-setup">A/B Test Setup<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ab-test-setup" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>You are an expert in experimentation and A/B testing. Your goal is to help design tests that produce statistically valid, actionable results.</p>
+<h2 id="initial-assessment">Initial Assessment<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#initial-assessment" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Check for product marketing context first:</strong><br/>
+If <code>.agents/product-marketing.md</code> exists (or <code>.claude/product-marketing.md</code>, or the legacy <code>product-marketing-context.md</code> filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.</p>
+<p>Before designing a test, understand:</p>
+<ol>
+<li><strong>Test Context</strong> - What are you trying to improve? What change are you considering?</li>
+<li><strong>Current State</strong> - Baseline conversion rate? Current traffic volume?</li>
+<li><strong>Constraints</strong> - Technical complexity? Timeline? Tools available?</li>
+</ol>
+<hr/>
+<h2 id="core-principles">Core Principles<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#core-principles" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="1-start-with-a-hypothesis">1. Start with a Hypothesis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-start-with-a-hypothesis" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Not just “let’s see what happens”</li>
+<li>Specific prediction of outcome</li>
+<li>Based on reasoning or data</li>
+</ul>
+<h3 id="2-test-one-thing">2. Test One Thing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-test-one-thing" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Single variable per test</li>
+<li>Otherwise you don’t know what worked</li>
+</ul>
+<h3 id="3-statistical-rigor">3. Statistical Rigor<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-statistical-rigor" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Pre-determine sample size</li>
+<li>Don’t peek and stop early</li>
+<li>Commit to the methodology</li>
+</ul>
+<h3 id="4-measure-what-matters">4. Measure What Matters<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-measure-what-matters" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Primary metric tied to business value</li>
+<li>Secondary metrics for context</li>
+<li>Guardrail metrics to prevent harm</li>
+</ul>
+<hr/>
+<h2 id="hypothesis-framework">Hypothesis Framework<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#hypothesis-framework" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="structure">Structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#structure" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>Because [observation/data],
+we believe [change]
+will cause [expected outcome]
+for [audience].
+We'll know this is true when [metrics].
+</code></pre>
+<h3 id="example">Example<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#example" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Weak</strong>: “Changing the button color might increase clicks.”</p>
+<p><strong>Strong</strong>: “Because users report difficulty finding the CTA (per heatmaps and feedback), we believe making the button larger and using contrasting color will increase CTA clicks by 15%+ for new visitors. We’ll measure click-through rate from page view to signup start.”</p>
+<hr/>
+<h2 id="test-types">Test Types<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#test-types" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Type</th><th>Description</th><th>Traffic Needed</th></tr></thead><tbody><tr><td>A/B</td><td>Two versions, single change</td><td>Moderate</td></tr><tr><td>A/B/n</td><td>Multiple variants</td><td>Higher</td></tr><tr><td>MVT</td><td>Multiple changes in combinations</td><td>Very high</td></tr><tr><td>Split URL</td><td>Different URLs for variants</td><td>Moderate</td></tr></tbody></table></div>
+<hr/>
+<h2 id="sample-size">Sample Size<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#sample-size" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="quick-reference">Quick Reference<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#quick-reference" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Baseline</th><th>10% Lift</th><th>20% Lift</th><th>50% Lift</th></tr></thead><tbody><tr><td>1%</td><td>150k/variant</td><td>39k/variant</td><td>6k/variant</td></tr><tr><td>3%</td><td>47k/variant</td><td>12k/variant</td><td>2k/variant</td></tr><tr><td>5%</td><td>27k/variant</td><td>7k/variant</td><td>1.2k/variant</td></tr><tr><td>10%</td><td>12k/variant</td><td>3k/variant</td><td>550/variant</td></tr></tbody></table></div>
+<p><strong>Calculators:</strong></p>
+<ul>
+<li><a href="https://www.evanmiller.org/ab-testing/sample-size.html" class="external external-link">Evan Miller’s<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.optimizely.com/sample-size-calculator/" class="external external-link">Optimizely’s<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<p><strong>For detailed sample size tables and duration calculations</strong>: See <a href="../../references/sample-size-guide" class="internal internal-link" data-slug="references/sample-size-guide">sample-size-guide.md</a></p>
+<hr/>
+<h2 id="metrics-selection">Metrics Selection<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#metrics-selection" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="primary-metric">Primary Metric<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#primary-metric" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Single metric that matters most</li>
+<li>Directly tied to hypothesis</li>
+<li>What you’ll use to call the test</li>
+</ul>
+<h3 id="secondary-metrics">Secondary Metrics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#secondary-metrics" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Support primary metric interpretation</li>
+<li>Explain why/how the change worked</li>
+</ul>
+<h3 id="guardrail-metrics">Guardrail Metrics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#guardrail-metrics" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Things that shouldn’t get worse</li>
+<li>Stop test if significantly negative</li>
+</ul>
+<h3 id="example-pricing-page-test">Example: Pricing Page Test<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#example-pricing-page-test" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Primary</strong>: Plan selection rate</li>
+<li><strong>Secondary</strong>: Time on page, plan distribution</li>
+<li><strong>Guardrail</strong>: Support tickets, refund rate</li>
+</ul>
+<hr/>
+<h2 id="designing-variants">Designing Variants<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#designing-variants" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="what-to-vary">What to Vary<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-to-vary" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Category</th><th>Examples</th></tr></thead><tbody><tr><td>Headlines/Copy</td><td>Message angle, value prop, specificity, tone</td></tr><tr><td>Visual Design</td><td>Layout, color, images, hierarchy</td></tr><tr><td>CTA</td><td>Button copy, size, placement, number</td></tr><tr><td>Content</td><td>Information included, order, amount, social proof</td></tr></tbody></table></div>
+<h3 id="best-practices">Best Practices<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#best-practices" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Single, meaningful change</li>
+<li>Bold enough to make a difference</li>
+<li>True to the hypothesis</li>
+</ul>
+<hr/>
+<h2 id="traffic-allocation">Traffic Allocation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#traffic-allocation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Approach</th><th>Split</th><th>When to Use</th></tr></thead><tbody><tr><td>Standard</td><td>50/50</td><td>Default for A/B</td></tr><tr><td>Conservative</td><td>90/10, 80/20</td><td>Limit risk of bad variant</td></tr><tr><td>Ramping</td><td>Start small, increase</td><td>Technical risk mitigation</td></tr></tbody></table></div>
+<p><strong>Considerations:</strong></p>
+<ul>
+<li>Consistency: Users see same variant on return</li>
+<li>Balanced exposure across time of day/week</li>
+</ul>
+<hr/>
+<h2 id="implementation">Implementation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#implementation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="client-side">Client-Side<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#client-side" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>JavaScript modifies page after load</li>
+<li>Quick to implement, can cause flicker</li>
+<li>Tools: PostHog, Optimizely, VWO</li>
+</ul>
+<h3 id="server-side">Server-Side<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#server-side" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Variant determined before render</li>
+<li>No flicker, requires dev work</li>
+<li>Tools: PostHog, LaunchDarkly, Split</li>
+</ul>
+<hr/>
+<h2 id="running-the-test">Running the Test<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#running-the-test" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="pre-launch-checklist">Pre-Launch Checklist<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pre-launch-checklist" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Hypothesis documented</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Primary metric defined</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Sample size calculated</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Variants implemented correctly</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Tracking verified</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> QA completed on all variants</li>
+</ul>
+<h3 id="during-the-test">During the Test<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#during-the-test" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>DO:</strong></p>
+<ul>
+<li>Monitor for technical issues</li>
+<li>Check segment quality</li>
+<li>Document external factors</li>
+</ul>
+<p><strong>Avoid:</strong></p>
+<ul>
+<li>Peek at results and stop early</li>
+<li>Make changes to variants</li>
+<li>Add traffic from new sources</li>
+</ul>
+<h3 id="the-peeking-problem">The Peeking Problem<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-peeking-problem" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Looking at results before reaching sample size and stopping early leads to false positives and wrong decisions. Pre-commit to sample size and trust the process.</p>
+<hr/>
+<h2 id="analyzing-results">Analyzing Results<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#analyzing-results" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="statistical-significance">Statistical Significance<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#statistical-significance" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>95% confidence = p-value &lt; 0.05</li>
+<li>Means &lt;5% chance result is random</li>
+<li>Not a guarantee—just a threshold</li>
+</ul>
+<h3 id="analysis-checklist">Analysis Checklist<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#analysis-checklist" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Reach sample size?</strong> If not, result is preliminary</li>
+<li><strong>Statistically significant?</strong> Check confidence intervals</li>
+<li><strong>Effect size meaningful?</strong> Compare to MDE, project impact</li>
+<li><strong>Secondary metrics consistent?</strong> Support the primary?</li>
+<li><strong>Guardrail concerns?</strong> Anything get worse?</li>
+<li><strong>Segment differences?</strong> Mobile vs. desktop? New vs. returning?</li>
+</ol>
+<h3 id="interpreting-results">Interpreting Results<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#interpreting-results" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Result</th><th>Conclusion</th></tr></thead><tbody><tr><td>Significant winner</td><td>Implement variant</td></tr><tr><td>Significant loser</td><td>Keep control, learn why</td></tr><tr><td>No significant difference</td><td>Need more traffic or bolder test</td></tr><tr><td>Mixed signals</td><td>Dig deeper, maybe segment</td></tr></tbody></table></div>
+<hr/>
+<h2 id="documentation">Documentation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#documentation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Document every test with:</p>
+<ul>
+<li>Hypothesis</li>
+<li>Variants (with screenshots)</li>
+<li>Results (sample, metrics, significance)</li>
+<li>Decision and learnings</li>
+</ul>
+<p><strong>For templates</strong>: See <a href="../../references/test-templates" class="internal internal-link" data-slug="references/test-templates">test-templates.md</a></p>
+<hr/>
+<h2 id="growth-experimentation-program">Growth Experimentation Program<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#growth-experimentation-program" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Individual tests are valuable. A continuous experimentation program is a compounding asset. This section covers how to run experiments as an ongoing growth engine, not just one-off tests.</p>
+<h3 id="the-experiment-loop">The Experiment Loop<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-experiment-loop" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>1. Generate hypotheses (from data, research, competitors, customer feedback)
+2. Prioritize with ICE scoring
+3. Design and run the test
+4. Analyze results with statistical rigor
+5. Promote winners to a playbook
+6. Generate new hypotheses from learnings
+→ Repeat
+</code></pre>
+<h3 id="hypothesis-generation">Hypothesis Generation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#hypothesis-generation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Feed your experiment backlog from multiple sources:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Source</th><th>What to Look For</th></tr></thead><tbody><tr><td>Analytics</td><td>Drop-off points, low-converting pages, underperforming segments</td></tr><tr><td>Customer research</td><td>Pain points, confusion, unmet expectations</td></tr><tr><td>Competitor analysis</td><td>Features, messaging, or UX patterns they use that you don’t</td></tr><tr><td>Support tickets</td><td>Recurring questions or complaints about conversion flows</td></tr><tr><td>Heatmaps/recordings</td><td>Where users hesitate, rage-click, or abandon</td></tr><tr><td>Past experiments</td><td>”Significant loser” tests often reveal new angles to try</td></tr></tbody></table></div>
+<h3 id="ice-prioritization">ICE Prioritization<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ice-prioritization" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Score each hypothesis 1-10 on three dimensions:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Dimension</th><th>Question</th></tr></thead><tbody><tr><td><strong>Impact</strong></td><td>If this works, how much will it move the primary metric?</td></tr><tr><td><strong>Confidence</strong></td><td>How sure are we this will work? (Based on data, not gut.)</td></tr><tr><td><strong>Ease</strong></td><td>How fast and cheap can we ship and measure this?</td></tr></tbody></table></div>
+<p><strong>ICE Score</strong> = (Impact + Confidence + Ease) / 3</p>
+<p>Run highest-scoring experiments first. Re-score monthly as context changes.</p>
+<h3 id="experiment-velocity">Experiment Velocity<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#experiment-velocity" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Track your experimentation rate as a leading indicator of growth:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Metric</th><th>Target</th></tr></thead><tbody><tr><td>Experiments launched per month</td><td>4-8 for most teams</td></tr><tr><td>Win rate</td><td>20-30% is common for mature programs (sustained higher rates may indicate conservative hypotheses)</td></tr><tr><td>Average test duration</td><td>2-4 weeks</td></tr><tr><td>Backlog depth</td><td>20+ hypotheses queued</td></tr><tr><td>Cumulative lift</td><td>Compound gains from all winners</td></tr></tbody></table></div>
+<h3 id="the-experiment-playbook">The Experiment Playbook<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-experiment-playbook" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>When a test wins, don’t just implement it — document the pattern:</p>
+<pre><code>## [Experiment Name]
+**Date**: [date]
+**Hypothesis**: [the hypothesis]
+**Sample size**: [n per variant]
+**Result**: [winner/loser/inconclusive] — [primary metric] changed by [X%] (95% CI: [range], p=[value])
+**Guardrails**: [any guardrail metrics and their outcomes]
+**Segment deltas**: [notable differences by device, segment, or cohort]
+**Why it worked/failed**: [analysis]
+**Pattern**: [the reusable insight — e.g., &quot;social proof near pricing CTAs increases plan selection&quot;]
+**Apply to**: [other pages/flows where this pattern might work]
+**Status**: [implemented / parked / needs follow-up test]
+</code></pre>
+<p>Over time, your playbook becomes a library of proven growth patterns specific to your product and audience.</p>
+<h3 id="experiment-cadence">Experiment Cadence<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#experiment-cadence" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Weekly (30 min)</strong>: Review running experiments for technical issues and guardrail metrics. Don’t call winners early — but do stop tests where guardrails are significantly negative.</p>
+<p><strong>Bi-weekly</strong>: Conclude completed experiments. Analyze results, update playbook, launch next experiment from backlog.</p>
+<p><strong>Monthly (1 hour)</strong>: Review experiment velocity, win rate, cumulative lift. Replenish hypothesis backlog. Re-prioritize with ICE.</p>
+<p><strong>Quarterly</strong>: Audit the playbook. Which patterns have been applied broadly? Which winning patterns haven’t been scaled yet? What areas of the funnel are under-tested?</p>
+<hr/>
+<h2 id="common-mistakes">Common Mistakes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#common-mistakes" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="test-design">Test Design<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#test-design" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Testing too small a change (undetectable)</li>
+<li>Testing too many things (can’t isolate)</li>
+<li>No clear hypothesis</li>
+</ul>
+<h3 id="execution">Execution<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#execution" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Stopping early</li>
+<li>Changing things mid-test</li>
+<li>Not checking implementation</li>
+</ul>
+<h3 id="analysis">Analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#analysis" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Ignoring confidence intervals</li>
+<li>Cherry-picking segments</li>
+<li>Over-interpreting inconclusive results</li>
+</ul>
+<hr/>
+<h2 id="task-specific-questions">Task-Specific Questions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#task-specific-questions" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>What’s your current conversion rate?</li>
+<li>How much traffic does this page get?</li>
+<li>What change are you considering and why?</li>
+<li>What’s the smallest improvement worth detecting?</li>
+<li>What tools do you have for testing?</li>
+<li>Have you tested this area before?</li>
+</ol>
+<hr/>
+<h2 id="related-skills">Related Skills<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#related-skills" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>cro</strong>: For generating test ideas based on CRO principles</li>
+<li><strong>analytics</strong>: For setting up test measurement</li>
+<li><strong>copywriting</strong>: For creating variant copy</li>
+</ul>
+<h2 id="参考文件">参考文件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#参考文件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><code>sample-size-guide.md</code></li>
+<li><code>test-templates.md</code></li>
+</ul>
+<h2 id="关联">关联<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#关联" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="../../wiki/topics/b2b-saas-gtm" class="internal internal-link" data-slug="wiki/topics/b2b-saas-gtm">B2B-SaaS-GTM</a></li>
+<li><a href="../../wiki/skills/marketing-skills-index" class="internal internal-link" data-slug="wiki/skills/marketing-skills-index">Marketing-Skills-Index</a></li>
+</ul>
+<h2 id="来源">来源<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#来源" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="../.././../raw/_marketingskills/skills/ab-testing/skill" class="internal internal-link alias" data-slug="raw/_marketingskills/skills/ab-testing/skill">raw/_marketingskills/skills/ab-testing/SKILL.md</a></li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-43" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#ab-testing" data-for="ab-testing">ab-testing</a></li><li class="depth-1"><a href="#定义" data-for="定义">定义</a></li><li class="depth-1"><a href="#触发场景" data-for="触发场景">触发场景</a></li><li class="depth-1"><a href="#核心内容" data-for="核心内容">核心内容</a></li><li class="depth-0"><a href="#ab-test-setup" data-for="ab-test-setup">A/B Test Setup</a></li><li class="depth-1"><a href="#initial-assessment" data-for="initial-assessment">Initial Assessment</a></li><li class="depth-1"><a href="#core-principles" data-for="core-principles">Core Principles</a></li><li class="depth-2"><a href="#1-start-with-a-hypothesis" data-for="1-start-with-a-hypothesis">1. Start with a Hypothesis</a></li><li class="depth-2"><a href="#2-test-one-thing" data-for="2-test-one-thing">2. Test One Thing</a></li><li class="depth-2"><a href="#3-statistical-rigor" data-for="3-statistical-rigor">3. Statistical Rigor</a></li><li class="depth-2"><a href="#4-measure-what-matters" data-for="4-measure-what-matters">4. Measure What Matters</a></li><li class="depth-1"><a href="#hypothesis-framework" data-for="hypothesis-framework">Hypothesis Framework</a></li><li class="depth-2"><a href="#structure" data-for="structure">Structure</a></li><li class="depth-2"><a href="#example" data-for="example">Example</a></li><li class="depth-1"><a href="#test-types" data-for="test-types">Test Types</a></li><li class="depth-1"><a href="#sample-size" data-for="sample-size">Sample Size</a></li><li class="depth-2"><a href="#quick-reference" data-for="quick-reference">Quick Reference</a></li><li class="depth-1"><a href="#metrics-selection" data-for="metrics-selection">Metrics Selection</a></li><li class="depth-2"><a href="#primary-metric" data-for="primary-metric">Primary Metric</a></li><li class="depth-2"><a href="#secondary-metrics" data-for="secondary-metrics">Secondary Metrics</a></li><li class="depth-2"><a href="#guardrail-metrics" data-for="guardrail-metrics">Guardrail Metrics</a></li><li class="depth-2"><a href="#example-pricing-page-test" data-for="example-pricing-page-test">Example: Pricing Page Test</a></li><li class="depth-1"><a href="#designing-variants" data-for="designing-variants">Designing Variants</a></li><li class="depth-2"><a href="#what-to-vary" data-for="what-to-vary">What to Vary</a></li><li class="depth-2"><a href="#best-practices" data-for="best-practices">Best Practices</a></li><li class="depth-1"><a href="#traffic-allocation" data-for="traffic-allocation">Traffic Allocation</a></li><li class="depth-1"><a href="#implementation" data-for="implementation">Implementation</a></li><li class="depth-2"><a href="#client-side" data-for="client-side">Client-Side</a></li><li class="depth-2"><a href="#server-side" data-for="server-side">Server-Side</a></li><li class="depth-1"><a href="#running-the-test" data-for="running-the-test">Running the Test</a></li><li class="depth-2"><a href="#pre-launch-checklist" data-for="pre-launch-checklist">Pre-Launch Checklist</a></li><li class="depth-2"><a href="#during-the-test" data-for="during-the-test">During the Test</a></li><li class="depth-2"><a href="#the-peeking-problem" data-for="the-peeking-problem">The Peeking Problem</a></li><li class="depth-1"><a href="#analyzing-results" data-for="analyzing-results">Analyzing Results</a></li><li class="depth-2"><a href="#statistical-significance" data-for="statistical-significance">Statistical Significance</a></li><li class="depth-2"><a href="#analysis-checklist" data-for="analysis-checklist">Analysis Checklist</a></li><li class="depth-2"><a href="#interpreting-results" data-for="interpreting-results">Interpreting Results</a></li><li class="depth-1"><a href="#documentation" data-for="documentation">Documentation</a></li><li class="depth-1"><a href="#growth-experimentation-program" data-for="growth-experimentation-program">Growth Experimentation Program</a></li><li class="depth-2"><a href="#the-experiment-loop" data-for="the-experiment-loop">The Experiment Loop</a></li><li class="depth-2"><a href="#hypothesis-generation" data-for="hypothesis-generation">Hypothesis Generation</a></li><li class="depth-2"><a href="#ice-prioritization" data-for="ice-prioritization">ICE Prioritization</a></li><li class="depth-2"><a href="#experiment-velocity" data-for="experiment-velocity">Experiment Velocity</a></li><li class="depth-2"><a href="#the-experiment-playbook" data-for="the-experiment-playbook">The Experiment Playbook</a></li><li class="depth-2"><a href="#experiment-cadence" data-for="experiment-cadence">Experiment Cadence</a></li><li class="depth-1"><a href="#common-mistakes" data-for="common-mistakes">Common Mistakes</a></li><li class="depth-2"><a href="#test-design" data-for="test-design">Test Design</a></li><li class="depth-2"><a href="#execution" data-for="execution">Execution</a></li><li class="depth-2"><a href="#analysis" data-for="analysis">Analysis</a></li><li class="depth-1"><a href="#task-specific-questions" data-for="task-specific-questions">Task-Specific Questions</a></li><li class="depth-1"><a href="#related-skills" data-for="related-skills">Related Skills</a></li><li class="depth-1"><a href="#参考文件" data-for="参考文件">参考文件</a></li><li class="depth-1"><a href="#关联" data-for="关联">关联</a></li><li class="depth-1"><a href="#来源" data-for="来源">来源</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../../schema/" class="internal">_index</a></li><li><a href="../../wiki/skills/marketing-skills-index" class="internal">Marketing-Skills-Index</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="../../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript-3426b91c.js" type="module" data-persist="true"></script></html>
