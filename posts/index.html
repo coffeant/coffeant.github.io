@@ -2,7 +2,7 @@
 <html lang="en" class="dark" style="color-scheme:dark">
 <head>
   <meta charSet="utf-8" />
-  <meta name="viewport" content="width=device-width" /><meta name="color-scheme" content="dark" />
+  <meta name="viewport" content="width=device-width" /><meta name="color-scheme" content="light dark" />
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
   <link rel="preload" href="/fonts/Inter-roman.latin.var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
   <title>Posts — Coffeant</title>
@@ -22,17 +22,26 @@
   <link rel="preload" href="/_next/static/css/8561bb13ecd83214.css" as="style" crossorigin="" />
   <link rel="stylesheet" href="/_next/static/css/8561bb13ecd83214.css" crossorigin="" data-n-g="" />
   <style id="__jsx-7c359fde634f3543">a.jsx-7c359fde634f3543{float:right}@media screen and (max-width:480px){article.jsx-7c359fde634f3543{padding-top:2rem;padding-bottom:4rem}}</style>
+<style id="theme-toggle-style">
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:1.9rem;height:1.9rem;padding:0;border:0;background:none;color:inherit;opacity:.6;cursor:pointer;border-radius:9999px;transition:opacity .15s ease,transform .15s ease}
+.theme-toggle:hover{opacity:1;transform:rotate(12deg)}
+.theme-toggle:focus-visible{outline:2px solid currentColor;outline-offset:2px;opacity:1}
+.theme-toggle svg{width:1rem;height:1rem;display:block}
+.theme-toggle .icon-sun{display:none}
+html.light .theme-toggle .icon-sun{display:block}
+html.light .theme-toggle .icon-moon{display:none}
+</style>
 </head>
 <body>
 <div id="__next">
-<script>!function(){var d=document.documentElement;try{localStorage.setItem("theme","dark")}catch(e){}d.classList.remove("light");d.classList.add("dark");d.style.colorScheme="dark"}()</script>
+<script>!function(){var d=document.documentElement,t;try{t=localStorage.getItem("theme")}catch(e){}var dark=t!=="light";if(dark){d.classList.add("dark")}else{d.classList.remove("dark");d.classList.add("light")}d.style.colorScheme=dark?"dark":"light";d.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".theme-toggle");if(!b)return;e.preventDefault();var wasDark=d.classList.contains("dark");d.classList.toggle("dark",!wasDark);d.classList.toggle("light",wasDark);d.style.colorScheme=wasDark?"light":"dark";try{localStorage.setItem("theme",wasDark?"light":"dark")}catch(e){}b.setAttribute("aria-pressed",String(!wasDark));b.title=wasDark?"Switch to dark mode":"Switch to light mode"})}()</script>
 <article class="nx-container nx-prose max-md:nx-prose-sm dark:nx-prose-dark" dir="ltr">
   <h1>Posts</h1>
   <div class="nx-mb-8 nx-flex nx-items-center nx-gap-3">
     <div class="nx-flex nx-grow nx-flex-wrap nx-items-center nx-justify-end nx-gap-3">
       <a href="/">About</a>
       <a href="/photos/">Photos</a>
-      <span class="nx-cursor-default dark:nx-text-gray-400 nx-text-gray-600">Posts</span>
+      <span class="nx-cursor-default dark:nx-text-gray-400 nx-text-gray-600">Posts</span><button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="true" title="Switch to light mode"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.6 12H2.4M21.6 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M6.3 17.7l-1.5 1.5M19.2 4.8l-1.5 1.5"/></svg></button>
     </div>
   </div>
 
