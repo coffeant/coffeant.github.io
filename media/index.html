@@ -10,15 +10,15 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/logo-180.png" />
   <meta name="robots" content="follow, index" />
-  <meta name="description" content="Videos on GTM systems, AI agents and marketing engineering." />
+  <meta name="description" content="Three videos that shaped how I build GTM systems with AI agents." />
   <meta property="og:site_name" content="Coffeant" />
-  <meta property="og:description" content="Videos on GTM systems, AI agents and marketing engineering." />
+  <meta property="og:description" content="Three videos that shaped how I build GTM systems with AI agents." />
   <meta property="og:title" content="Media | Coffeant" />
-  <meta property="og:image" content="https://coffeant.github.io/images/photo.jpg" />
+  <meta property="og:image" content="https://i.ytimg.com/vi/8ZC1G1ezN5o/maxresdefault.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Media | Coffeant" />
-  <meta name="twitter:description" content="Videos on GTM systems, AI agents and marketing engineering." />
-  <meta name="twitter:image" content="https://coffeant.github.io/images/photo.jpg" />
+  <meta name="twitter:description" content="Three videos that shaped how I build GTM systems with AI agents." />
+  <meta name="twitter:image" content="https://i.ytimg.com/vi/8ZC1G1ezN5o/maxresdefault.jpg" />
   <link rel="preload" href="/_next/static/css/8561bb13ecd83214.css" as="style" crossorigin="" />
   <link rel="stylesheet" href="/_next/static/css/8561bb13ecd83214.css" crossorigin="" data-n-g="" />
   <style id="__jsx-7c359fde634f3543">a.jsx-7c359fde634f3543{float:right}@media screen and (max-width:480px){article.jsx-7c359fde634f3543{padding-top:2rem;padding-bottom:4rem}}</style>
@@ -33,18 +33,32 @@ html.light .theme-toggle .icon-moon{display:none}
 .site-title{display:inline-flex;align-items:center;justify-content:flex-start;gap:.6rem;width:max-content;max-width:100%}
 .site-logo{width:2.6rem;height:2.6rem;flex:none;display:block}
 @media screen and (max-width:480px){.site-logo{width:2.2rem;height:2.2rem}}
-.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;margin:1.25rem 0 2rem}
-.video-card{margin:0}
-.video-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:.55rem;background:rgba(127,127,127,.14)}
+
+/* one video per row, full width, sharp 1280px poster */
+.video-list{margin:2rem 0 0}
+.video-item{display:flex;flex-direction:column;gap:1.1rem;margin:0 0 4rem;padding:0}
+.video-kicker{margin:0 0 .55rem;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.5}
+.video-headline{margin:0 0 .6rem;font-size:1.5em;line-height:1.28;font-weight:750;letter-spacing:-.022em;text-wrap:balance}
+.video-why{margin:0;max-width:64ch;font-size:.9375rem;line-height:1.65;opacity:.75}
+.video-thumb{position:relative;display:block;margin:0;aspect-ratio:16/9;overflow:hidden;border-radius:.6rem;background:rgba(127,127,127,.14);-webkit-tap-highlight-color:transparent}
+.video-list a.video-thumb,.video-list a.video-thumb:hover{color:inherit;font-weight:400;text-decoration:none;margin:0}
+.video-thumb img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.001);transition:transform .5s cubic-bezier(.22,.61,.36,1),filter .3s ease}
+.video-thumb:hover img,.video-thumb:focus-visible img{transform:scale(1.03);filter:brightness(1.06)}
+.video-thumb:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.video-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.video-play span{display:flex;align-items:center;justify-content:center;width:clamp(56px,11%,84px);aspect-ratio:1;border-radius:50%;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);box-shadow:0 6px 24px rgba(0,0,0,.45),inset 0 0 0 1.5px rgba(255,255,255,.75);transition:transform .25s ease,background .25s ease}
+.video-thumb:hover .video-play span,.video-thumb:focus-visible .video-play span{transform:scale(1.08);background:rgba(0,0,0,.72)}
+.video-play svg{width:34%;height:34%;margin-left:6%;fill:#fff}
+.video-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:.6rem;background:rgba(127,127,127,.14)}
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-card figcaption{font-size:.875rem;line-height:1.45;margin-top:.6rem}
-.video-card .video-title{display:block;font-weight:600}
-.video-card .video-meta{display:block;opacity:.65;font-size:.8125rem;margin-top:.15rem}
+.video-source{margin:0;font-size:.8125rem;line-height:1.5;opacity:.55}
+.video-source a{text-decoration:underline;text-underline-offset:2px}
 </style>
 </head>
 <body>
 <div id="__next">
 <script>!function(){var d=document.documentElement,t;try{t=localStorage.getItem("theme")}catch(e){}var dark=t!=="light";if(dark){d.classList.add("dark")}else{d.classList.remove("dark");d.classList.add("light")}d.style.colorScheme=dark?"dark":"light";d.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".theme-toggle");if(!b)return;e.preventDefault();var wasDark=d.classList.contains("dark");d.classList.toggle("dark",!wasDark);d.classList.toggle("light",wasDark);d.style.colorScheme=wasDark?"light":"dark";try{localStorage.setItem("theme",wasDark?"light":"dark")}catch(e){}b.setAttribute("aria-pressed",String(!wasDark));b.title=wasDark?"Switch to dark mode":"Switch to light mode"})}()</script>
+<script>!function(){document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("[data-video]");if(!a||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();var frame=document.createElement("div");frame.className="video-frame";var f=document.createElement("iframe");f.src="https://www.youtube-nocookie.com/embed/"+a.getAttribute("data-video")+"?autoplay=1&rel=0&modestbranding=1";f.title=a.getAttribute("data-title")||"Video";f.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";f.referrerPolicy="strict-origin-when-cross-origin";f.allowFullscreen=true;f.setAttribute("allowfullscreen","");frame.appendChild(f);a.replaceWith(frame)})}()</script>
 <article class="nx-container nx-prose max-md:nx-prose-sm dark:nx-prose-dark" dir="ltr">
   <h1>Media</h1>
   <div class="nx-mb-8 nx-flex nx-items-center nx-gap-3">
@@ -55,31 +69,51 @@ html.light .theme-toggle .icon-moon{display:none}
     </div>
   </div>
 
-  <p>Videos I keep coming back to on GTM systems, AI agents and marketing engineering.</p>
+  <p>Three videos that changed how I build. Each one below comes with the one thing I'd steal from it.</p>
 
-  <h2 id="videos">Videos</h2>
+  <h2 id="videos">Watch</h2>
 
-  <div class="media-grid">
-    <figure class="video-card">
-      <div class="video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/8ZC1G1ezN5o" title="Marketing Engineer: The $1M Job with AI Agents" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <figcaption><span class="video-title">Marketing Engineer: The $1M Job with AI Agents</span><span class="video-meta">Greg Isenberg</span></figcaption>
-    </figure>
+  <div class="video-list">
 
-    <figure class="video-card">
-      <div class="video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/uJuxenfe-NU" title="AI Agents are too good at marketing now" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <figcaption><span class="video-title">AI Agents are too good at marketing now</span><span class="video-meta">Greg Isenberg</span></figcaption>
-    </figure>
+    <section class="video-item">
+      <header>
+        <p class="video-kicker">01 &middot; The role</p>
+        <h3 class="video-headline">The best-paid marketing job of the next two years has no job description yet</h3>
+        <p class="video-why">Greg spends half an hour describing a hire almost no team has thought to make: someone who builds the systems marketing runs on &mdash; data, agents, evals &mdash; instead of running campaigns by hand. He puts the salary at $250K to $1M+ and then hands you a 30-day plan to become that person. This is the video I send when people ask what a marketing engineer actually does.</p>
+      </header>
+      <a class="video-thumb" href="https://www.youtube.com/watch?v=8ZC1G1ezN5o" data-video="8ZC1G1ezN5o" data-title="Marketing Engineer: The $1M Job with AI Agents">
+        <img src="https://i.ytimg.com/vi/8ZC1G1ezN5o/maxresdefault.jpg" alt="Marketing Engineer: The $1M Job with AI Agents — video thumbnail" width="1280" height="720" loading="lazy" decoding="async" />
+        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+      </a>
+      <p class="video-source">Greg Isenberg &middot; <a href="https://www.youtube.com/watch?v=8ZC1G1ezN5o" target="_blank" rel="noreferrer">Marketing Engineer: The $1M Job with AI Agents</a></p>
+    </section>
 
-    <figure class="video-card">
-      <div class="video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/tpZOU1ugODQ" title="Meta Muse Will Create 1,000 Millionaires" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <figcaption><span class="video-title">Meta Muse Will Create 1,000 Millionaires</span><span class="video-meta">Greg Isenberg</span></figcaption>
-    </figure>
+    <section class="video-item">
+      <header>
+        <p class="video-kicker">02 &middot; The work</p>
+        <h3 class="video-headline">They built a $5 ad that beats agency creative &mdash; live, on camera</h3>
+        <p class="video-why">Cody Schneider gives an agent the only three things it needs: data in a warehouse, write access to the ad platforms, and tools for images, video and leads. Then they ship static ads for Cursor and Late Checkout and a UGC avatar spot for about five dollars. The part worth stealing is the review layer &mdash; a swipe warehouse of references plus a creative-director agent that grades every ad before it ships.</p>
+      </header>
+      <a class="video-thumb" href="https://www.youtube.com/watch?v=uJuxenfe-NU" data-video="uJuxenfe-NU" data-title="AI Agents are too good at marketing now">
+        <img src="https://i.ytimg.com/vi/uJuxenfe-NU/maxresdefault.jpg" alt="AI Agents are too good at marketing now — video thumbnail" width="1280" height="720" loading="lazy" decoding="async" />
+        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+      </a>
+      <p class="video-source">Greg Isenberg &amp; Cody Schneider &middot; <a href="https://www.youtube.com/watch?v=uJuxenfe-NU" target="_blank" rel="noreferrer">AI Agents are too good at marketing now</a></p>
+    </section>
+
+    <section class="video-item">
+      <header>
+        <p class="video-kicker">03 &middot; The arbitrage</p>
+        <h3 class="video-headline">The next million-dollar business is a Facebook group nobody bothered to monetize</h3>
+        <p class="video-why">His wife needed a night nurse. The agency found one in a Facebook group. That is the whole thesis: agents can now mine groups, Marketplace and Instagram to match buyers with sellers in any city and any niche &mdash; and the clean list of names, needs, prices and trust signals becomes an asset you own. He demos it live for Montreal night nurses at $30 an hour, then maps the ladder from side hustle to vertical software.</p>
+      </header>
+      <a class="video-thumb" href="https://www.youtube.com/watch?v=tpZOU1ugODQ" data-video="tpZOU1ugODQ" data-title="Meta Muse Will Create 1,000 Millionaires">
+        <img src="https://i.ytimg.com/vi/tpZOU1ugODQ/maxresdefault.jpg" alt="Meta Muse Will Create 1,000 Millionaires — video thumbnail" width="1280" height="720" loading="lazy" decoding="async" />
+        <span class="video-play" aria-hidden="true"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+      </a>
+      <p class="video-source">Greg Isenberg &middot; <a href="https://www.youtube.com/watch?v=tpZOU1ugODQ" target="_blank" rel="noreferrer">Meta Muse Will Create 1,000 Millionaires</a></p>
+    </section>
+
   </div>
 
   <small style="display:block;margin-top:8rem" class="jsx-7c359fde634f3543"><time class="jsx-7c359fde634f3543">2026</time> © Coffeant.<a href="/feed.xml" class="jsx-7c359fde634f3543">RSS</a></small>
