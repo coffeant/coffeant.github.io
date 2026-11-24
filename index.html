@@ -6,9 +6,9 @@
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
   <link rel="preload" href="/fonts/Inter-roman.latin.var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
   <title>Coffeant — GTM, Content Factory & Marketing Engineering</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
-  <link rel="apple-touch-icon" href="/images/photo.jpg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/logo-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo-180.png" />
   <meta name="robots" content="follow, index" />
   <meta name="description" content="Coffeant — GTM systems, content factories, and marketing engineering. I build the infrastructure that turns one input a week into compounding distribution." />
   <meta property="og:site_name" content="Coffeant" />
@@ -30,13 +30,16 @@
 .theme-toggle .icon-sun{display:none}
 html.light .theme-toggle .icon-sun{display:block}
 html.light .theme-toggle .icon-moon{display:none}
+.site-title{display:flex;align-items:center;gap:.7rem}
+.site-logo{width:2.6rem;height:2.6rem;border-radius:50%;flex:none;background:#fff;box-shadow:0 0 0 1px rgba(128,128,128,.28)}
+@media screen and (max-width:480px){.site-logo{width:2.2rem;height:2.2rem}}
 </style>
 </head>
 <body>
 <div id="__next">
 <script>!function(){var d=document.documentElement,t;try{t=localStorage.getItem("theme")}catch(e){}var dark=t!=="light";if(dark){d.classList.add("dark")}else{d.classList.remove("dark");d.classList.add("light")}d.style.colorScheme=dark?"dark":"light";d.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".theme-toggle");if(!b)return;e.preventDefault();var wasDark=d.classList.contains("dark");d.classList.toggle("dark",!wasDark);d.classList.toggle("light",wasDark);d.style.colorScheme=wasDark?"light":"dark";try{localStorage.setItem("theme",wasDark?"light":"dark")}catch(e){}b.setAttribute("aria-pressed",String(!wasDark));b.title=wasDark?"Switch to dark mode":"Switch to light mode"})}()</script>
 <article class="nx-container nx-prose max-md:nx-prose-sm dark:nx-prose-dark" dir="ltr">
-  <h1>Coffeant</h1>
+  <h1 class="site-title"><img class="site-logo" src="/images/logo.png" alt="" width="44" height="44" decoding="async" />Coffeant</h1>
   <div class="nx-mb-8 nx-flex nx-items-center nx-gap-3">
     <div class="nx-flex nx-grow nx-flex-wrap nx-items-center nx-justify-end nx-gap-3">
       <span class="nx-cursor-default dark:nx-text-gray-400 nx-text-gray-600">About</span>
