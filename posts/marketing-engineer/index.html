@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charSet="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+  <link rel="preload" href="/fonts/Inter-roman.latin.var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  <title>How to become a marketing engineer — Coffeant</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/images/photo.jpg" />
+  <meta name="robots" content="follow, index" />
+  <meta name="description" content="Field notes on Shann's marketing engineering playbook: workspace, knowledge layer, data layer, first workflow, loops and recurring jobs." />
+  <meta property="og:site_name" content="Coffeant" />
+  <meta property="og:description" content="Field notes on Shann's marketing engineering playbook: workspace, knowledge layer, data layer, first workflow, loops and recurring jobs." />
+  <meta property="og:title" content="How to become a marketing engineer" />
+  <meta property="og:image" content="https://coffeant.github.io/images/photo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to become a marketing engineer" />
+  <meta name="twitter:description" content="Field notes on Shann's marketing engineering playbook." />
+  <meta name="twitter:image" content="https://coffeant.github.io/images/photo.jpg" />
+  <link rel="preload" href="/_next/static/css/8561bb13ecd83214.css" as="style" crossorigin="" />
+  <link rel="stylesheet" href="/_next/static/css/8561bb13ecd83214.css" crossorigin="" data-n-g="" />
+  <style id="__jsx-7c359fde634f3543">a.jsx-7c359fde634f3543{float:right}@media screen and (max-width:480px){article.jsx-7c359fde634f3543{padding-top:2rem;padding-bottom:4rem}}</style>
+</head>
+<body>
+<div id="__next">
+<script>!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme='dark';c.add('dark')}else{d.style.colorScheme='light';c.add('light')}}else if(e){c.add(e||'')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()</script>
+<article class="nx-container nx-prose max-md:nx-prose-sm dark:nx-prose-dark" dir="ltr">
+  <h1>How to become a marketing engineer</h1>
+
+  <div class="nx-mb-8 nx-flex nx-gap-3 nx-items-center">
+    <div class="nx-grow dark:nx-text-gray-400 nx-text-gray-600">
+      <div class="nx-not-prose nx-flex nx-flex-wrap nx-items-center nx-gap-1">Coffeant, <time dateTime="2026-11-24">Nov 24 2026</time></div>
+    </div>
+    <div class="nx-flex nx-items-center nx-gap-3 print:nx-hidden">
+      <a href="/posts/">Back</a>
+    </div>
+  </div>
+
+  <p>A marketing engineer builds the systems that do the marketing work — not the campaigns themselves. Shann wrote the clearest map of that job I've read: workspace first, then data, then knowledge, then workflows, then loops. These are my notes, condensed so I can reuse them.</p>
+
+  <p><strong>Read the original first.</strong> This page is a condensed note with attribution, not a copy. The full walkthrough is worth its 17 minutes — link at the bottom.</p>
+
+  <hr />
+
+  <h2>1. The definition worth stealing</h2>
+
+  <blockquote>
+    <p>"a marketing engineer builds systems that do marketing work, using agents, connected data and context from the business."</p>
+  </blockquote>
+
+  <p>Three consequences follow from that sentence, and they're the whole discipline:</p>
+
+  <ul>
+    <li><strong>The deliverable is a workflow, not an asset.</strong> A campaign ends; a workflow runs again next month with less input from you.</li>
+    <li><strong>You stay in the loop, at defined points.</strong> Agents research, plan and produce; you review direction and approve what ships.</li>
+    <li><strong>Results loop back into context.</strong> Performance data and your own feedback become the input for the next run. Otherwise you're just generating.</li>
+  </ul>
+
+  <h2>2. You don't need every marketing vertical</h2>
+
+  <p>The role borrows from six areas — product marketing (customer, positioning, offer), content and creative (voice, examples, review), growth and performance (tests, measurable outcomes), ops and automation (how work moves between tools), analytics (reliable data, sanity-checked interpretation), and engineering (APIs, code, tested workflows).</p>
+
+  <p>The useful instruction is the simplest one: <strong>start with the work you already know.</strong> If you came from content, your first workflow should be a content workflow. Your existing judgment is what lets you tell a good draft from a plausible one, and that judgment is the part agents can't supply.</p>
+
+  <h2>3. Workspace before workflow</h2>
+
+  <p>Each project needs somewhere to hold context, run workflows and store output. Organise by vertical, with shared knowledge sitting above them:</p>
+
+  <pre><code>marketing/
+├── shared-knowledge/          # product, audience, positioning, brand
+├── content/
+│   ├── knowledge/             # voice guide, examples, research
+│   ├── work/                  # active briefs and campaigns
+│   ├── workflows/
+│   ├── skills/                # reusable instructions
+│   ├── agents/
+│   ├── scripts-and-code/
+│   ├── outputs/
+│   └── results-and-learnings/
+├── seo-aeo/
+├── outbound/
+├── paid-and-creative/
+└── lifecycle-and-cro/</code></pre>
+
+  <p>Two rules make the folders actually usable:</p>
+
+  <ul>
+    <li><strong>Write the map down.</strong> A folder tree tells an agent nothing. A short Markdown file per workspace — where things live, which sources to use, where the output goes — is what turns structure into behaviour.</li>
+    <li><strong>Separate campaign knowledge from shared knowledge.</strong> Research stays with its campaign; only findings that matter beyond that project get promoted upward.</li>
+  </ul>
+
+  <h2>4. Connect the tools, then cap what they can do</h2>
+
+  <p>A workflow is only as good as what it can reach: the platform APIs for research and drafting, research skills for conversations beyond your own accounts, and the warehouse for anything measured.</p>
+
+  <p>The operational details are where people get hurt:</p>
+
+  <ul>
+    <li><strong>Keys live in a <code>.env</code> file</strong>, excluded from Git, never pasted into prompts, briefs or knowledge files.</li>
+    <li><strong>Reading and publishing are different permissions.</strong> Draft creation and publishing should not be the same switch, and approval should be a step in the workflow, not a habit.</li>
+    <li><strong>Test small first.</strong> Retrieve a few posts or create one draft before wiring the connection into a campaign.</li>
+  </ul>
+
+  <h2>5. Two knowledge layers</h2>
+
+  <p>Every workflow needs to know the audience, the offer, the goal and what has already been tried. That splits cleanly in two:</p>
+
+  <ul>
+    <li><strong>Internal:</strong> product details and offers, customer calls and CRM notes, support conversations, your own expertise, previous campaigns and their results.</li>
+    <li><strong>External:</strong> competitor products and campaigns, public discussion and reviews, industry research, search demand.</li>
+  </ul>
+
+  <p>The value is in the collision. A question buyers keep asking on calls, matched against how people actually search for that problem, produces a campaign angle. Either one alone produces a generic one.</p>
+
+  <p>Keep sources and dates on research, label unverified claims, and record <em>why</em> you rejected a direction. "This promises a result the product doesn't deliver" gives the next run something specific to check.</p>
+
+  <h2>6. The data layer is the part everyone skips</h2>
+
+  <p>If you want agents to plan the next round of ads, they need to know what happened in the last one — not clicks, but which visitors converted and whether those conversions became customers. That data lives in four places: ad platform, website analytics, CRM, and the record of which angle each test used.</p>
+
+  <p>Bring them into one queryable place, ideally a small warehouse you own:</p>
+
+  <pre><code>ads / analytics / CRM  →  script: fetch + refresh  →  warehouse
+        →  agent: read data + context  →  proposes next tests
+        →  your review  →  campaign brief  →  results saved back</code></pre>
+
+  <p>Two things people assume and shouldn't:</p>
+
+  <ul>
+    <li><strong>An API connection doesn't keep data fresh.</strong> Something has to run on a schedule and refresh it.</li>
+    <li><strong>Attribution will have gaps.</strong> Campaign IDs, ad IDs and tracking parameters do most of the connecting work; where they're missing, the workflow should flag it rather than confidently attribute every sale.</li>
+  </ul>
+
+  <h2>7. Your first workflow</h2>
+
+  <p>Pick a task you already do often enough to recognise a good result in ten seconds. That's the test — not importance, familiarity.</p>
+
+  <p>The planning habit that makes it work: talk through the goal, context, what you've tried and what you're unsure about for five minutes, transcribe it, then let the agent question the brief. Most of the leverage is in that conversation, not in the prompt.</p>
+
+  <p>A first goal is better short than clever:</p>
+
+  <pre><code>/goal prepare a creative brief for the next round of paid ads.
+
+use audience.md, approved-claims.md and previous-test-results.md.
+research and propose 3 angles; explain who each is for and what
+informed it. flag assumptions and link sources.
+
+save the brief to creative-brief.md.
+stop when it is ready for my review. do not publish.
+ask if required context is missing.</code></pre>
+
+  <p>Then run it with your own input in the loop, and fix the <em>inputs</em> when the output is weak. Generic angles usually mean the research criteria were too broad or the customer context was missing — not that the model is bad.</p>
+
+  <h2>8. Loops, schedules and bots</h2>
+
+  <ul>
+    <li><strong>A loop</strong> is create → check → fix → check again, with a defined "done", a retry budget and a rule for when to stop and ask. "Make it better" is not a goal; "dimensions match the brief, text isn't clipped, claims match approved-claims.md" is.</li>
+    <li><strong>A recurring job</strong> is a workflow that proved itself. Daily data refresh, weekly competitor review, weekly performance report with questions attached. A schedule does not fix an unfinished workflow — test the task first.</li>
+    <li><strong>A bot</strong> is a workflow with an interface. Once a task is reliable, giving it a Slack handle is the difference between a tool you remember and a system your team uses.</li>
+  </ul>
+
+  <h2>9. Workflows worth copying</h2>
+
+  <ul>
+    <li><strong>Competitor site monitoring</strong> — collect pages on a schedule, detect changes, have an agent explain what changed, send a briefing with source links.</li>
+    <li><strong>Competitor creative library</strong> — collect new ads, transcribe video, tag visuals, make it searchable, feed it into angle development.</li>
+    <li><strong>Podcast to team content</strong> — transcripts in, insights out, combined with each person's expertise, drafted and scheduled.</li>
+    <li><strong>SEO production</strong> — keyword and SERP research, angle with your input, outline, draft, visuals, checks.</li>
+    <li><strong>Paid creative and testing</strong> — previous results plus objections plus competitor ads, into test angles, into assets, into the next brief.</li>
+    <li><strong>Content repurposing</strong> — one approved anchor piece into channel-specific posts, emails and clips.</li>
+    <li><strong>Email campaign production</strong> — offer plus segments plus customer questions, into sequence, copy, checks, send approval.</li>
+    <li><strong>Landing page production</strong> — brief plus ad messages plus objections, into page, into design and tracking checks.</li>
+    <li><strong>Creator research</strong> — audience fit, previous results, rates, shortlist and briefs.</li>
+    <li><strong>Weekly campaign report</strong> — performance against goals, flagged questions, posted where the team already is.</li>
+  </ul>
+
+  <h2>10. What I'm taking from it</h2>
+
+  <ul>
+    <li><strong>The bottleneck is context, not models.</strong> The line that stuck: improving the context feeding the writer matters more than adding agents. Same for GTM — a second ops tool doesn't fix a positioning gap.</li>
+    <li><strong>One workflow on a real deadline beats a perfect system.</strong> Pick the task someone is waiting for.</li>
+    <li><strong>Keep the receipts.</strong> Save the brief, the workflow, one example output and the results. That's the portfolio, and it's the only honest way to answer "does this actually work?"</li>
+  </ul>
+
+  <hr />
+
+  <h2>Source</h2>
+
+  <p>Shann³ (@shannholmberg), <em>“How to Become a Marketing Engineer”</em>, X, September 10 2026 — 17 min read, 500K+ views.</p>
+
+  <p><a href="https://x.com/shannholmberg/status/2098004743536750869" target="_blank" rel="noreferrer">Read the original on X<span class="nx-sr-only nx-select-none"> (opens in a new tab)</span></a></p>
+
+  <small style="display:block;margin-top:8rem" class="jsx-7c359fde634f3543"><time class="jsx-7c359fde634f3543">2026</time> © Coffeant.<a href="/feed.xml" class="jsx-7c359fde634f3543">RSS</a></small>
+</article>
+</div>
+</body>
+</html>
