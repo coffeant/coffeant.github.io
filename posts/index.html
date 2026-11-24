@@ -30,8 +30,8 @@
 .theme-toggle .icon-sun{display:none}
 html.light .theme-toggle .icon-sun{display:block}
 html.light .theme-toggle .icon-moon{display:none}
-.site-title{display:flex;align-items:center;gap:.7rem}
-.site-logo{width:2.6rem;height:2.6rem;border-radius:50%;flex:none;background:#fff;box-shadow:0 0 0 1px rgba(128,128,128,.28)}
+.site-title{display:inline-flex;align-items:center;justify-content:flex-start;gap:.6rem;width:max-content;max-width:100%}
+.site-logo{width:2.6rem;height:2.6rem;flex:none;display:block}
 @media screen and (max-width:480px){.site-logo{width:2.2rem;height:2.2rem}}
 </style>
 </head>
@@ -43,7 +43,7 @@ html.light .theme-toggle .icon-moon{display:none}
   <div class="nx-mb-8 nx-flex nx-items-center nx-gap-3">
     <div class="nx-flex nx-grow nx-flex-wrap nx-items-center nx-justify-end nx-gap-3">
       <a href="/">About</a>
-      <a href="/photos/">Photos</a>
+      <a href="/media/">Media</a>
       <span class="nx-cursor-default dark:nx-text-gray-400 nx-text-gray-600">Posts</span><button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="true" title="Switch to light mode"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.6 12H2.4M21.6 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M6.3 17.7l-1.5 1.5M19.2 4.8l-1.5 1.5"/></svg></button>
     </div>
   </div>
