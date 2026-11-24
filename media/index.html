@@ -10,14 +10,14 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/logo-180.png" />
   <meta name="robots" content="follow, index" />
-  <meta name="description" content="Video, writing and photography from Coffeant." />
+  <meta name="description" content="Videos on GTM systems, AI agents and marketing engineering." />
   <meta property="og:site_name" content="Coffeant" />
-  <meta property="og:description" content="Video, writing and photography from Coffeant." />
+  <meta property="og:description" content="Videos on GTM systems, AI agents and marketing engineering." />
   <meta property="og:title" content="Media | Coffeant" />
   <meta property="og:image" content="https://coffeant.github.io/images/photo.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Media | Coffeant" />
-  <meta name="twitter:description" content="Video, writing and photography from Coffeant." />
+  <meta name="twitter:description" content="Videos on GTM systems, AI agents and marketing engineering." />
   <meta name="twitter:image" content="https://coffeant.github.io/images/photo.jpg" />
   <link rel="preload" href="/_next/static/css/8561bb13ecd83214.css" as="style" crossorigin="" />
   <link rel="stylesheet" href="/_next/static/css/8561bb13ecd83214.css" crossorigin="" data-n-g="" />
@@ -33,17 +33,13 @@ html.light .theme-toggle .icon-moon{display:none}
 .site-title{display:inline-flex;align-items:center;justify-content:flex-start;gap:.6rem;width:max-content;max-width:100%}
 .site-logo{width:2.6rem;height:2.6rem;flex:none;display:block}
 @media screen and (max-width:480px){.site-logo{width:2.2rem;height:2.2rem}}
-.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.25rem;margin:1.25rem 0 2rem}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;margin:1.25rem 0 2rem}
 .video-card{margin:0}
 .video-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:.55rem;background:rgba(127,127,127,.14)}
 .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-card figcaption{font-size:.875rem;opacity:.75;margin-top:.5rem}
-.media-empty{border:1px dashed rgba(127,127,127,.35);border-radius:.55rem;padding:1.25rem 1.35rem;opacity:.8}
-.media-empty p{margin:0}
-.media-list{display:flex;flex-direction:column;gap:1.1rem;margin:1.25rem 0 1.5rem}
-.media-item h3{margin:0 0 .25rem}
-.media-item p{margin:0 0 .25rem}
-.media-item time{font-size:.8125rem;opacity:.65}
+.video-card figcaption{font-size:.875rem;line-height:1.45;margin-top:.6rem}
+.video-card .video-title{display:block;font-weight:600}
+.video-card .video-meta{display:block;opacity:.65;font-size:.8125rem;margin-top:.15rem}
 </style>
 </head>
 <body>
@@ -55,54 +51,36 @@ html.light .theme-toggle .icon-moon{display:none}
     <div class="nx-flex nx-grow nx-flex-wrap nx-items-center nx-justify-end nx-gap-3">
       <a href="/">About</a>
       <span class="nx-cursor-default dark:nx-text-gray-400 nx-text-gray-600">Media</span>
-      <a href="/posts/">Posts</a><button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="true" title="Switch to light mode"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.6 12H2.4M21.6 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M6.3 17.7l-1.5 1.5M19.2 4.8l-1.5 1.5"/></svg></button>
+      <a href="/posts/">Writing</a><button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="true" title="Switch to light mode"><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.6 12H2.4M21.6 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M6.3 17.7l-1.5 1.5M19.2 4.8l-1.5 1.5"/></svg></button>
     </div>
   </div>
 
-  <p>Everything that isn't a long post: video, shorter writing and photographs.</p>
+  <p>Videos I keep coming back to on GTM systems, AI agents and marketing engineering.</p>
 
   <h2 id="videos">Videos</h2>
 
   <div class="media-grid">
-    <!--
-      To add a video, copy this block and replace VIDEO_ID + the caption:
+    <figure class="video-card">
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/8ZC1G1ezN5o" title="Marketing Engineer: The $1M Job with AI Agents" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <figcaption><span class="video-title">Marketing Engineer: The $1M Job with AI Agents</span><span class="video-meta">Greg Isenberg</span></figcaption>
+    </figure>
 
-      <figure class="video-card">
-        <div class="video-frame">
-          <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Video title" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <figcaption>Video title · 12 min</figcaption>
-      </figure>
-    -->
-    <div class="media-empty"><p>No videos published yet. The first one is being edited — this section will hold explainers on GTM systems, content factories and marketing engineering.</p></div>
+    <figure class="video-card">
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/uJuxenfe-NU" title="AI Agents are too good at marketing now" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <figcaption><span class="video-title">AI Agents are too good at marketing now</span><span class="video-meta">Greg Isenberg</span></figcaption>
+    </figure>
+
+    <figure class="video-card">
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/tpZOU1ugODQ" title="Meta Muse Will Create 1,000 Millionaires" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <figcaption><span class="video-title">Meta Muse Will Create 1,000 Millionaires</span><span class="video-meta">Greg Isenberg</span></figcaption>
+    </figure>
   </div>
-
-  <h2 id="writing">Writing</h2>
-
-  <div class="media-list">
-    <div class="media-item">
-      <h3><a class="!nx-no-underline" href="/posts/content-factory/">How to build a content factory</a></h3>
-      <p>Notes on Jack Haldorsson's playbook: message and pillars, one input a week, the machine, the quality layer, distribution, and the funnel that turns attention into revenue.</p>
-      <time dateTime="2026-11-25">Nov 25 2026</time>
-    </div>
-    <div class="media-item">
-      <h3><a class="!nx-no-underline" href="/posts/marketing-engineer/">How to become a marketing engineer</a></h3>
-      <p>Field notes on Shann's playbook: workspace, knowledge layer, data layer, first workflow, loops and recurring jobs.</p>
-      <time dateTime="2026-11-24">Nov 24 2026</time>
-    </div>
-  </div>
-
-  <p><a href="/posts/">All posts</a></p>
-
-  <h2 id="photos">Photos</h2>
-
-  <p>Here's some of my photography.</p>
-
-  <img alt="Photo" width="1125" height="750" decoding="async" data-nimg="1" class="next-image" style="color:transparent" src="/images/photo2.jpg" />
-  <p><a href="https://unsplash.com/photos/WeYamle9fDM" target="_blank" rel="noreferrer">Unsplash <span class="nx-sr-only nx-select-none"> (opens in a new tab)</span></a></p>
-
-  <img alt="Photo" width="1125" height="750" decoding="async" data-nimg="1" class="next-image" style="color:transparent" src="/images/photo.jpg" />
-  <p><a href="https://unsplash.com/photos/ndN00KmbJ1c" target="_blank" rel="noreferrer">Unsplash <span class="nx-sr-only nx-select-none"> (opens in a new tab)</span></a></p>
 
   <small style="display:block;margin-top:8rem" class="jsx-7c359fde634f3543"><time class="jsx-7c359fde634f3543">2026</time> © Coffeant.<a href="/feed.xml" class="jsx-7c359fde634f3543">RSS</a></small>
 </article>
