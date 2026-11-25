@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# GitHub Pages asset folder — no reason to crawl it
+Disallow: /_next/
+
+Sitemap: https://coffeant.github.io/sitemap.xml
