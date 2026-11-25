@@ -4,8 +4,16 @@
         <description><![CDATA[GTM systems, content factories and marketing engineering.]]></description>
         <link>https://coffeant.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 25 Nov 2026 09:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Nov 2026 10:00:00 GMT</lastBuildDate>
         <atom:link href="https://coffeant.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Five marketing predictions for 2027]]></title>
+            <description><![CDATA[Notes on Stacy Muur's 2027 calls: query fan-out and the 12% of AI-cited URLs that rank, the creator bubble deflating, human-made content as a selling point, distribution scarcity, and personal brands as compensation.]]></description>
+            <link>https://coffeant.github.io/posts/predictions-2027/</link>
+            <guid isPermaLink="true">https://coffeant.github.io/posts/predictions-2027/</guid>
+            <dc:creator><![CDATA[Coffeant]]></dc:creator>
+            <pubDate>Wed, 25 Nov 2026 10:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[How to build a content factory]]></title>
             <description><![CDATA[Notes on Jack Haldorsson's playbook: message and pillars, one input a week, the machine, the quality layer, distribution, and the revenue funnel.]]></description>
@@ -14,6 +22,7 @@
             <dc:creator><![CDATA[Coffeant]]></dc:creator>
             <pubDate>Wed, 25 Nov 2026 09:00:00 GMT</pubDate>
         </item>
+        <item>
             <title><![CDATA[How to become a marketing engineer]]></title>
             <description><![CDATA[Field notes on Shann's playbook: workspace, knowledge layer, data layer, first workflow, loops and recurring jobs.]]></description>
             <link>https://coffeant.github.io/posts/marketing-engineer/</link>
